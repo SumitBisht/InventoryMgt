@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/invmgmt?zeroDateTimeBehavior=convertToNull</property>
+    <!--
+    <property name="hibernate.hbm2ddl.auto">create</property>
+    -->
+    <property name="hibernate.connection.CharSet">utf8</property>
+    <property name="hibernate.connection.characterEncoding">utf8</property>
+    <property name="hibernate.connection.useUnicode">true</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <mapping resource="com/tss/ocean/pojo/ACL.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/ACLEntity.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Accounts.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/EmployeeLeaveTypes.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Item.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Alarmevent.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Usertype.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Prstatus.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Alarms.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Itemtype.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Purorder.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/EmployeeLeaves.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/ApplyLeaves.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Itemunit.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/PayrollCategories.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Purrequisition.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Employees.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/EmployeeAttendances.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Purorderdt.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Users.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Purrequisitiondt.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/MonthlyPayslips.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/EmployeeCategory.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/EmployeeDepartment.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Country.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Bank.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/PurordApprovers.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

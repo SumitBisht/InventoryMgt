@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Aug, 2014 6:30:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.Alarms" table="alarms" catalog="invmgmt">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="45" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="65535" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="active" />
+        </property>
+        <property name="createdat" type="java.lang.Integer">
+            <column name="createdat" />
+        </property>
+        <property name="updatedat" type="java.lang.Integer">
+            <column name="updatedat" />
+        </property>
+        <property name="createdby" type="java.lang.Integer">
+            <column name="createdby" />
+        </property>
+    </class>
+</hibernate-mapping>

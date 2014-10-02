@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Aug, 2014 6:30:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.Employees" table="employees" catalog="invmgmt">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="employeeCategoryId" type="java.lang.Integer">
+            <column name="employee_category_id" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+        <property name="employeeNumber" type="string">
+            <column name="employee_number" />
+        </property>
+        <property name="joiningDate" type="date">
+            <column name="joining_date" length="10" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="first_name" />
+        </property>
+        <property name="middleName" type="string">
+            <column name="middle_name" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" />
+        </property>
+        <property name="gender" type="java.lang.Boolean">
+            <column name="gender" />
+        </property>
+        <property name="jobTitle" type="string">
+            <column name="job_title" />
+        </property>
+        <property name="employeePositionId" type="java.lang.Integer">
+            <column name="employee_position_id" />
+        </property>
+        <property name="employeeDepartmentId" type="java.lang.Integer">
+            <column name="employee_department_id" />
+        </property>
+        <property name="reportingManagerId" type="java.lang.Integer">
+            <column name="reporting_manager_id" />
+        </property>
+        <property name="employeeGradeId" type="java.lang.Integer">
+            <column name="employee_grade_id" />
+        </property>
+        <property name="qualification" type="string">
+            <column name="qualification" />
+        </property>
+        <property name="experienceDetail" type="string">
+            <column name="experience_detail" length="65535" />
+        </property>
+        <property name="experienceYear" type="java.lang.Integer">
+            <column name="experience_year" />
+        </property>
+        <property name="experienceMonth" type="java.lang.Integer">
+            <column name="experience_month" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <property name="statusDescription" type="string">
+            <column name="status_description" />
+        </property>
+        <property name="dateOfBirth" type="date">
+            <column name="date_of_birth" length="10" />
+        </property>
+        <property name="maritalStatus" type="string">
+            <column name="marital_status" />
+        </property>
+        <property name="childrenCount" type="java.lang.Integer">
+            <column name="children_count" />
+        </property>
+        <property name="fatherName" type="string">
+            <column name="father_name" />
+        </property>
+        <property name="motherName" type="string">
+            <column name="mother_name" />
+        </property>
+        <property name="husbandName" type="string">
+            <column name="husband_name" />
+        </property>
+        <property name="bloodGroup" type="string">
+            <column name="blood_group" />
+        </property>
+        <property name="nationalityId" type="java.lang.Integer">
+            <column name="nationality_id" />
+        </property>
+        <property name="homeAddressLine1" type="string">
+            <column name="home_address_line1" />
+        </property>
+        <property name="homeAddressLine2" type="string">
+            <column name="home_address_line2" />
+        </property>
+        <property name="homeCity" type="string">
+            <column name="home_city" />
+        </property>
+        <property name="homeState" type="string">
+            <column name="home_state" />
+        </property>
+        <property name="homeCountryId" type="java.lang.Integer">
+            <column name="home_country_id" />
+        </property>
+        <property name="homePinCode" type="string">
+            <column name="home_pin_code" />
+        </property>
+        <property name="officeAddressLine1" type="string">
+            <column name="office_address_line1" />
+        </property>
+        <property name="officeAddressLine2" type="string">
+            <column name="office_address_line2" />
+        </property>
+        <property name="officeCity" type="string">
+            <column name="office_city" />
+        </property>
+        <property name="officeState" type="string">
+            <column name="office_state" />
+        </property>
+        <property name="officeCountryId" type="java.lang.Integer">
+            <column name="office_country_id" />
+        </property>
+        <property name="officePinCode" type="string">
+            <column name="office_pin_code" />
+        </property>
+        <property name="officePhone1" type="string">
+            <column name="office_phone1" />
+        </property>
+        <property name="officePhone2" type="string">
+            <column name="office_phone2" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="mobile_phone" />
+        </property>
+        <property name="homePhone" type="string">
+            <column name="home_phone" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" />
+        </property>
+        <property name="photoFileName" type="string">
+            <column name="photo_file_name" />
+        </property>
+        <property name="photoContentType" type="string">
+            <column name="photo_content_type" />
+        </property>
+        <property name="photoData" type="java.sql.Blob">
+            <column name="photo_data" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+        <property name="photoFileSize" type="java.lang.Integer">
+            <column name="photo_file_size" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+        </property>
+        <property name="passportNumber" type="string">
+            <column name="passport_number" />
+        </property>
+        <property name="passportExpiryDate" type="timestamp">
+            <column name="passport_expiry_date" />
+        </property>
+        <property name="salary" type="java.lang.Long">
+            <column name="salary" />
+        </property>
+        <property name="bankId" type="java.lang.Integer">
+            <column name="bank_id" />
+        </property>
+        <property name="accountNumber" type="string">
+            <column name="account_number" />
+        </property>
+        <property name="codeNumber" type="string">
+            <column name="code_number" />
+        </property>
+
+    </class>
+</hibernate-mapping>

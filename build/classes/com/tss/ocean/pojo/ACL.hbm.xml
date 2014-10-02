@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Aug, 2014 6:30:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.ACL" table="acl" catalog="invmgmt">        
+        <id name="aclId" type="string">
+            <column name="aclid" length="256" not-null="true" />
+        </id>
+        <property name="aclModule" type="string">
+            <column name="aclmodule" length="256" not-null="true" />
+        </property>
+        <property name="parentAclId" type="string">
+            <column name="parentaclid" length="256" />
+        </property>
+    </class>
+</hibernate-mapping>

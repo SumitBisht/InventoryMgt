@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Aug, 2014 6:30:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.EmployeeLeaves" table="employee_leaves" catalog="invmgmt">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="employeeId" type="java.lang.Integer">
+            <column name="employee_id" />
+        </property>
+        <property name="employeeLeaveTypeId" type="java.lang.Integer">
+            <column name="employee_leave_type_id" />
+        </property>
+        <property name="leaveCount" type="big_decimal">
+            <column name="leave_count" precision="5" scale="1" />
+        </property>
+        <property name="leaveTaken" type="big_decimal">
+            <column name="leave_taken" precision="5" scale="1" />
+        </property>
+        <property name="resetDate" type="date">
+            <column name="reset_date" length="10" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

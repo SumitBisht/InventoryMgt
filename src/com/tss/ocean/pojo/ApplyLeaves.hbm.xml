@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Aug, 2014 6:30:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.ApplyLeaves" table="apply_leaves" catalog="invmgmt">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="employeeId" type="java.lang.Integer">
+            <column name="employee_id" />
+        </property>
+        <property name="employeeLeaveTypesId" type="java.lang.Integer">
+            <column name="employee_leave_types_id" />
+        </property>
+        <property name="isHalfDay" type="java.lang.Boolean">
+            <column name="is_half_day" />
+        </property>
+        <property name="startDate" type="date">
+            <column name="start_date" length="10" />
+        </property>
+        <property name="endDate" type="date">
+            <column name="end_date" length="10" />
+        </property>
+        <property name="reason" type="string">
+            <column name="reason" />
+        </property>
+        <property name="approved" type="java.lang.Boolean">
+            <column name="approved" />
+        </property>
+        <property name="viewedByManager" type="java.lang.Boolean">
+            <column name="viewed_by_manager" />
+        </property>
+        <property name="managerRemark" type="string">
+            <column name="manager_remark" />
+        </property>
+    </class>
+</hibernate-mapping>

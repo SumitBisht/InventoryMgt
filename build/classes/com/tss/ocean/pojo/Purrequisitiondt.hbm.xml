@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Aug, 2014 6:30:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.Purrequisitiondt" table="purrequisitiondt" catalog="invmgmt">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="purreqid" type="int">
+            <column name="purreqid" not-null="true" />
+        </property>
+        <property name="itemid" type="int">
+            <column name="itemid" not-null="true" />
+        </property>
+        <property name="qty" type="int">
+            <column name="qty" not-null="true" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="price" precision="15" />
+        </property>
+        <many-to-one name="item" class="com.tss.ocean.pojo.Item" fetch="select" lazy="false" insert="false" update="false">
+           <column name="itemid" not-null="true" />
+        </many-to-one>
+<!--        <many-to-one name="item" column="itemid" unique="true" class="com.tss.ocean.pojo.Item" 
+        not-null="true" insert="false" update="false" />-->
+    </class>
+</hibernate-mapping>

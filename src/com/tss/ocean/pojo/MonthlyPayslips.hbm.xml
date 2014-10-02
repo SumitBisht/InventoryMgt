@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Aug, 2014 6:30:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.MonthlyPayslips" table="monthly_payslips" catalog="invmgmt">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="salaryDate" type="date">
+            <column name="salary_date" length="10" />
+        </property>
+        <property name="employeeId" type="java.lang.Integer">
+            <column name="employee_id" />
+        </property>
+        <property name="payrollCategoryId" type="java.lang.Integer">
+            <column name="payroll_category_id" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" />
+        </property>
+        <property name="isApproved" type="boolean">
+            <column name="is_approved" not-null="true" />
+        </property>
+        <property name="approverId" type="java.lang.Integer">
+            <column name="approver_id" />
+        </property>
+        <property name="isRejected" type="boolean">
+            <column name="is_rejected" not-null="true" />
+        </property>
+        <property name="rejectorId" type="java.lang.Integer">
+            <column name="rejector_id" />
+        </property>
+        <property name="reason" type="string">
+            <column name="reason" />
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" />
+        </property>
+    </class>
+</hibernate-mapping>

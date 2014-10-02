@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.ACLEntity" table="acl_entity" catalog="invmgmt">
+        <id name="Id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="aclId" type="string">
+            <column name="aclid" length="256" not-null="true" />
+        </property>
+        <property name="entityId" type="java.lang.Integer">
+            <column name="entityid" />
+        </property>
+        <property name="entityType" type="java.lang.Integer">
+            <column name="entitytype" />
+        </property>
+        <property name="permissionLevel" type="java.lang.Integer">
+            <column name="permissionlevel" />
+        </property>
+    </class>
+</hibernate-mapping>
