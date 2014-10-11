@@ -48,7 +48,7 @@ public class AlarmController {
 	   {
 	     list= (ArrayList<Employees>) empDao.getAlarm();
 		 
-	     ModelAndView model = new ModelAndView("EmployeeAlarm");
+	     ModelAndView model = new ModelAndView("employeeAlarm");
 			model.addObject("list", list);
 	    System.out.println("hhhhhhhhhhh"+list.size());
 	     return model;

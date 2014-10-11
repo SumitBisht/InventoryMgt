@@ -12,24 +12,32 @@
 /*  12:    */ import com.tss.ocean.pojo.Employees;
 /*  13:    */ import com.tss.ocean.pojo.PurordApprovers;
 /*  14:    */ import com.tss.ocean.util.Utilities;
+
 /*  15:    */ import java.sql.Blob;
 /*  16:    */ import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 /*  17:    */ import java.util.ArrayList;
+import java.util.Date;
 /*  18:    */ import java.util.HashMap;
 /*  19:    */ import java.util.Iterator;
 /*  20:    */ import java.util.List;
 /*  21:    */ import java.util.Locale;
 /*  22:    */ import java.util.Map;
+
 /*  23:    */ import javax.validation.Valid;
+
 /*  24:    */ import org.hibernate.Hibernate;
 /*  25:    */ import org.slf4j.Logger;
 /*  26:    */ import org.slf4j.LoggerFactory;
 /*  27:    */ import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 /*  28:    */ import org.springframework.context.MessageSource;
 /*  29:    */ import org.springframework.stereotype.Controller;
 /*  30:    */ import org.springframework.ui.Model;
 /*  31:    */ import org.springframework.ui.ModelMap;
 /*  32:    */ import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 /*  33:    */ import org.springframework.web.bind.annotation.ModelAttribute;
 /*  34:    */ import org.springframework.web.bind.annotation.RequestMapping;
 /*  35:    */ import org.springframework.web.bind.annotation.RequestParam;
@@ -478,7 +486,13 @@
 /* 478:    */   {
 /* 479:497 */     logger.info("edit_employee-post called.");
 /* 480:498 */     ModelAndView mav = new ModelAndView("redirect:employee.html");
-/* 481:499 */     if (!result.hasErrors())
+/* 481:499 */    
+
+
+System.out.println("_________________________"+employees.getPassportExpiryDate());
+
+
+if (!result.hasErrors())
 /* 482:    */     {
 /* 483:500 */       if (employees.getFileData() != null)
 /* 484:    */       {
@@ -640,6 +654,15 @@
 /* 640:    */ 
 /* 641:660 */     return "add-purchase_approver";
 /* 642:    */   }
+
+
+@InitBinder
+public void initBinder(WebDataBinder binder) {
+    binder.registerCustomEditor(Date.class, new CustomDateEditor(
+            new SimpleDateFormat("yyyy-MM-dd"), false));
+}
+
+
 /* 643:    */ }
 
 
