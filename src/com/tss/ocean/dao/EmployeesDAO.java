@@ -24,8 +24,9 @@ public class EmployeesDAO
 	
 	Date today=new Date();
 	 String strDate=today.toString();
-
-	 Date result;
+	 String result2;
+	private Object startdate;
+	 //Date result;
 	
 	@Override
 	public List<Employees> getAlarm() {
@@ -50,17 +51,39 @@ public class EmployeesDAO
 	   
 	    //parse the date into another format
 	    strDate = sdfDestination.format(today);
+	    try {
+			 startdate=sdfDestination.parse(strDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
 			
 		
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.MONTH, +1);
-		 result = cal.getTime();
+		Date	 result = cal.getTime();
+		System.out.println("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"+result);
+		try {
+			result2=result.toString();
+			result= sdfSource.parse(result2);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		 
-		 
+		  result2=sdfDestination.format(result);
+		 System.out.println("NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"+result2);
 		
-	String hql = "from Employees e where e.passportExpiryDate between "+strDate+"  and "+sdfDestination.format(result) ;
-	Query query = session.createQuery(hql);
+String hql = "from Employees e where e.passportExpiryDate BETWEEN ?   AND  ?";
+					
+	Query query = session.createQuery(hql)
+	.setParameter(0, startdate)
+	.setParameter(1, result);
+	
 	List results = query.list();
+	System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"+results.size());
+
 	return results;
 	}
 	

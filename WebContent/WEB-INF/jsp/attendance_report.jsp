@@ -98,14 +98,14 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.attendance.fromdate" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">                                            
-                                                <form:input type="date" class="form-control" path="fromDate" placeholder="${fromdateplaceholder}" />
+                                                <form:input type="text" class="form-control datepicker" path="fromDate" placeholder="${fromdateplaceholder}" />
                                                 <form:errors path="fromDate" cssClass="error" />
                                             </div>
                                         </div>
                                             <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.attendance.todate" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">                                            
-                                                <form:input type="date" class="form-control" path="toDate" placeholder="${todateplaceholder}" />
+                                                <form:input type="text" class="form-control datepicker" path="toDate" placeholder="${todateplaceholder}" />
                                                 <form:errors path="toDate" cssClass="error" />
                                             </div>
                                         </div>
@@ -141,7 +141,7 @@
         <!-- Jquery UI Javascript -->
         <script src="js/jquery-ui.js"></script>
         <script type="text/javascript">
-                                           // $('input[type=date]').datepicker({dateFormat: 'dd/mm/yy'});
+                                            $('.datepicker]').datepicker({dateFormat: 'dd/mm/yy'});
         </script>
     </body>
 </html>

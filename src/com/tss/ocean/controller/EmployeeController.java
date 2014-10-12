@@ -505,8 +505,15 @@ System.out.println("_________________________"+employees.toString());
 /* 480:498 */     ModelAndView mav = new ModelAndView("redirect:employee.html");
 /* 481:499 */    
 
+System.out.println("ERRORS OCCURED"+result.getAllErrors().size());
 
-System.out.println("_________________________"+employees.getPassportExpiryDate());
+
+for (ObjectError e:result.getAllErrors())
+{
+	System.out.println(e.toString());
+}
+
+System.out.println("____________RRRRRRRRR_____________"+employees.getPassportExpiryDate());
 
 
 if (!result.hasErrors())
