@@ -1,15 +1,9 @@
-<%-- 
-    Document   : add_employee_category
-    Created on : Aug 24, 2014, 7:28:43 PM
-    Author     : sweta
---%>
-
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
-    <head>        
+    <head>
         <jsp:include page="header.jsp" />
     </head>
     <body role="document">
@@ -20,13 +14,12 @@
                     <div class="desh-icon-bg">
                         <img src="img/i-mgmt.png">
                     </div>
-                    <div class="page-title-text"><spring:message code="employee.list" text="Label value is missing !!!"/></div>
+                    <div class="page-title-text"><spring:message code="employees.list" text="Label value is missing !!!"/></div>
                 </div>
             </div>	
             <div class="row">
                 <div class="col-md-3">
                     <div class="catagory-main-box top-radius">
-
                         <!--<div class="cat-table-title"></div>-->
                         <!-- MUNU -->    
                         <div id='cssmenu'>
@@ -39,8 +32,8 @@
                                         <li><a href='leave_types.html'><span><spring:message code="menu.addleavetype" text="Label value is missing !!!"/></span></a></li>
                                         <li class="active"><a href='hr_attendence.html'><span><spring:message code="menu.attendanceregister" text="Label value is missing !!!"/></span></a></li>
                                         <li class='last'><a href='hr_attendence_report.html'><span><spring:message code="menu.attendancereport" text="Label value is missing !!!"/></span></a></li>
-                                        <li class='last'><a href='hr_employee_report.html'><span><spring:message code="menu.employeereport" text="Label value is missing !!!"/></span></a></li>
                                         <li class='last'><a href='hr_resetleaves.html'><span><spring:message code="menu.resetleave" text="Label value is missing !!!"/></span></a></li>
+                                        <li class='last'><a href='hr_employee_report.html'><span><spring:message code="menu.employeereport" text="Label value is missing !!!"/></span></a></li>
                                     </ul>
                                 </li>
                                 <li class=''><a href='#'><span><spring:message code="menu.settings" text="Label value is missing !!!"/></span></a>
@@ -51,8 +44,6 @@
                                         <li class='last'><a href='bank.html'><span><spring:message code="menu.bank" text="Label value is missing !!!"/></span></a></li>
                                     </ul>
                                 </li>
-
-
                             </ul>
                         </div>
                         <!-- END MUNU -->    
@@ -60,62 +51,40 @@
                 </div>
                 <div class="col-md-9">
                     <div class="catagory-main-box top-radius">
-                        <div class="cat-box-title cat-title-font top-radius"><spring:message code="employee.list" text="Label value is missing !!!"/></div>
-                        <spring:message text="Default Text" code="employeecategory.search.placeholder" var="search"/>
+                        <div class="cat-box-title cat-title-font top-radius"><spring:message code="menu.employeereport" text="Label value is missing !!!"/></div>
                         <div class="tab-content">
                             <div class="tab-pane active" id="demo">
-                                <div class="row tb-margin">
-                                    <div class="col-sm-4">
-                                        <a href="add_employee.html" class="btn btn-info add-row addrow-btn-left"><spring:message code="employee.add" text="Label value is missing !!!"/></a>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="form-group visible-sm visible-md visible-lg">
-                                            <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.search" text="Label value is missing !!!"/></label>
-                                            <div class="col-sm-8 col-xs-12">
-                                                <input id="filter" class="form-control" type="text"/>
-                                            </div>
-                                        </div>
-                                        <!--                                        <div class="form-group visible-xs">
-                                                                                    <div class="col-xs-12">
-                                                                                        <input id="filter" placeholder="${search}" class="form-control" type="text"/>
-                                                                                    </div>
-                                                                                </div>-->
-                                    </div>
-                                </div>
                                 <table id="dttable" class="table table-bordered table-striped" data-filter="#filter" data-page-size="5">
                                     <thead class="orange-bg border-t">
                                         <tr>
                                             <th data-toggle="true">
-                                                <spring:message code="label.employee.number" text="Label value is missing !!!"/>
+                                                <spring:message code="label.employee.emp_number" text="Label value is missing !!!"/>
                                             </th>
                                             <th data-hide="phone">
-                                                <spring:message code="label.employee.firstname" text="Label value is missing !!!"/> 
+                                                <spring:message code="label.employee.user_name" text="Label value is missing !!!"/> 
                                             </th>
                                             <th data-hide="phone">
-                                                <spring:message code="label.employee.birthdate" text="Label value is missing !!!"/> 
+                                                <spring:message code="label.employee.designation" text="Label value is missing !!!"/> 
                                             </th>
-                                            <th data-hide="phone">
-                                                <spring:message code="label.employee.department" text="Label value is missing !!!"/> 
+                                            <th data-hide="phone" data-name="Edit">
+                                                <spring:message code="label.employee.edit" text="Label value is missing !!!"/> 
                                             </th>  
-                                            <th data-hide="phone">
-                                                <spring:message code="label.employee.category" text="Label value is missing !!!"/> 
-                                            </th> 
                                             <th data-hide="phone" data-name="Delete">
-                                                <spring:message code="label.purorder.action" text="Label value is missing !!!"/> 
+                                                <spring:message code="label.employee.delete" text="Label value is missing !!!"/> 
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="employee" items="${employeeList}">
+                                        <c:forEach var="empl" items="${employees}">
                                             <tr>
-                                                <td>${employee.employeeNumber}</td>
-                                                <td>${employee.firstName}</td>
-                                                <td>${employee.dateOfBirth}</td>
-                                                <td>${departmentmap[employee.employeeDepartmentId]}</td>
-                                                <td>${categorymap[employee.employeeCategoryId]}</td>
+                                                <td>${empl.employeeNumber}</td>
+                                                <td>${empl.username}</td>                                                
+                                                <td>${empl.jobTitle}</td>
                                                 <td>
-                                                    <a href="edit_employee.html?id=${employee.id}" class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-edit"></span>Edit</a>
-                                                    <a href="delete_employee.html?id=${employee.id}" class="btn btn-default btn-sm row-delete" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                                    <a href="edit_employee.html?id=${empl.id}" class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+                                                </td>
+                                                <td>
+                                                    <a href="delete_employee.html?id=${empl.id}" class="btn btn-default btn-sm row-delete" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                                                 </td>
                                             </tr>                                        
                                         </c:forEach>
@@ -138,8 +107,6 @@
         </div>
         <!-- /container -->
         <!--Responsive Table-->
-        <script type="text/javascript">
-        </script>
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
@@ -147,9 +114,15 @@
         <script src="js/jquery.dataTables.min.js"></script>
         <script src="js/dataTables.responsive.min.js"></script>
         <script src="js/ajax-bootstrap3.js"></script>
-        <script src="js/docs.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
+                $("#fromDate").datepicker({
+                    dateFormat: 'yy/mm/dd'
+                });
+                $("#toDate").datepicker(
+                        {dateFormat: 'yy/mm/dd'});
+                var table = $('#dttable').DataTable();
                 $('.row-delete').click(function(eve) {
                     var row = this;
                     eve.preventDefault();
@@ -157,7 +130,7 @@
                         url: $(row).attr('href')
                         , success: function(response) {
                             if (response === true) {
-                                $(row).closest('tr').remove();
+                                table.row($(row).closest('tr')).remove().draw(false);
                             }
                         }
                     });
