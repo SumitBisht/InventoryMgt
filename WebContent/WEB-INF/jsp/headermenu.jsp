@@ -47,7 +47,7 @@
                                <li><a href="#contact"><spring:message code="menu.approve"/></a></li>
                
                
-                <li><a href="#contact"><spring:message code="menu.reports"/></a></li>
+                <li><a href="employee.html"><spring:message code="menu.reports"/></a></li>
                 <li><a href="#contact"><spring:message code="menu.setting"/></a></li>
                 <li><a href="alarm.htm"><spring:message code="menu.alarms"/></a></li>
             </ul>
