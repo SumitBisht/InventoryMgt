@@ -36,6 +36,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 /*  30:    */ import org.springframework.ui.Model;
 /*  31:    */ import org.springframework.ui.ModelMap;
 /*  32:    */ import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 /*  33:    */ import org.springframework.web.bind.annotation.ModelAttribute;
@@ -399,9 +400,18 @@ import org.springframework.web.bind.annotation.InitBinder;
 /* 391:    */   public ModelAndView addEmployeePost(@ModelAttribute("employee") @Valid Employees employees, BindingResult result, ModelMap model, Locale locale)
 /* 392:    */     throws Exception
 /* 393:    */   {
-/* 394:413 */     logger.info("add_employee_category-post called.");
+/* 394:413 */     logger.info("add_employee Post called.");
 /* 395:414 */     ModelAndView mav = new ModelAndView("redirect:add_employee.html");
-/* 396:415 */     if (!result.hasErrors())
+/* 396:415 */    
+System.out.println("ERRORS OCCURED"+result.getAllErrors().size());
+
+
+for (ObjectError e:result.getAllErrors())
+{
+	System.out.println(e.toString());
+}
+
+if (!result.hasErrors())
 /* 397:    */     {
 /* 398:416 */       if (employees.getFileData() != null)
 /* 399:    */       {
@@ -411,7 +421,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 /* 403:420 */         employees.setPhotoFileSize(Integer.valueOf(new Long(employees.getFileData().getSize()).intValue()));
 /* 404:    */       }
 /* 405:422 */       int insertResult = ((Integer)this.employeesDAO.insert(employees)).intValue();
-/* 406:423 */       List<Employees> employeeList = this.employeesDAO.getList();
+/* 406:423 */      
+System.out.println("HAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSNNNNNNNNNNNOOOOOOOOOOOEEEEEEEEERRRRRRRRRRRR"+employees.toString());
+
+List<Employees> employeeList = this.employeesDAO.getList();
 /* 407:424 */       List<EmployeeDepartment> departmentList = this.employeeDepartmentDAO.getList();
 /* 408:425 */       List<EmployeeCategory> categoryList = this.employeeCategoryDAO.getList();
 /* 409:426 */       List<Bank> bankList = this.bankDAO.getList();
@@ -428,6 +441,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 /* 420:436 */       logger.info("Error while inserting " + employees);
 /* 421:437 */       return mav.addObject("error", Utilities.getSpringMessage(this.messageSource, "employee.add.error", locale));
 /* 422:    */     }
+
+
+System.out.println("_________________________"+employees.toString());
+
 /* 423:440 */     return new ModelAndView("add_employee", model);
 /* 424:    */   }
 /* 425:    */   
@@ -656,11 +673,11 @@ if (!result.hasErrors())
 /* 642:    */   }
 
 
-@InitBinder
+/*@InitBinder
 public void initBinder(WebDataBinder binder) {
     binder.registerCustomEditor(Date.class, new CustomDateEditor(
             new SimpleDateFormat("yyyy-MM-dd"), false));
-}
+}*/
 
 
 /* 643:    */ }

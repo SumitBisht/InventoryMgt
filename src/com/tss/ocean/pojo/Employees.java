@@ -15,10 +15,10 @@
 /*  15:    */   @NotNull
 /*  16:    */   private Integer employeeCategoryId;
 /*  17:    */   
-/*  18:    */   private String employeeNumber;
-/*  19:    */   @NotEmpty
+/*  18:    */   private String employeeNumber; 
+/*  19:    */   
 /*  20:    */   private String username;
-/*  21:    */   @NotEmpty
+/*  21:    */   
 /*  22:    */   private String password;
 /*  23:    */   @DateTimeFormat(pattern="dd/MM/yyyy")
 /*  24:    */   private Date joiningDate;
