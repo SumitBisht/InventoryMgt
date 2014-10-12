@@ -14,7 +14,7 @@
 /*  14:    */   private Integer id;
 /*  15:    */   @NotNull
 /*  16:    */   private Integer employeeCategoryId;
-/*  17:    */   @NotEmpty
+/*  17:    */   
 /*  18:    */   private String employeeNumber;
 /*  19:    */   @NotEmpty
 /*  20:    */   private String username;

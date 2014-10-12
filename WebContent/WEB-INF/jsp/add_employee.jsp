@@ -154,7 +154,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.employee.joiningdate" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">                                            
-                                                <form:input type="date" class="form-control" path="joiningDate" placeholder="${joiningdateplaceholder}" />
+                                                <input type="date" class="form-control" path="joiningDate" placeholder="${joiningdateplaceholder}" />
                                                 <form:errors path="joiningDate" cssClass="error" />
                                             </div>
                                         </div>

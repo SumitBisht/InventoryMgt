@@ -42,6 +42,11 @@
                 <li><a href="item.html"><spring:message code="menu.invmgmt"/></a></li>
                 <li><a href="employee.html"><spring:message code="menu.hr"/></a></li>
                 <li><a href="finance_management.html"><spring:message code="menu.finance"/></a></li>
+                               <li><a href="#contact"><spring:message code="menu.cashier"/></a></li>
+                               <li><a href="#contact"><spring:message code="menu.purchase"/></a></li>
+                               <li><a href="#contact"><spring:message code="menu.approve"/></a></li>
+               
+               
                 <li><a href="#contact"><spring:message code="menu.reports"/></a></li>
                 <li><a href="#contact"><spring:message code="menu.setting"/></a></li>
                 <li><a href="alarm.htm"><spring:message code="menu.alarms"/></a></li>
