@@ -8,6 +8,7 @@
 /*   8:    */ import com.tss.ocean.pojo.EmployeeLeaveTypes;
 /*   9:    */ import com.tss.ocean.pojo.Employees;
 /*  10:    */ import com.tss.ocean.util.Utilities;
+
 /*  11:    */ import java.io.Serializable;
 /*  12:    */ import java.text.DecimalFormat;
 /*  13:    */ import java.util.ArrayList;
@@ -18,12 +19,15 @@
 /*  18:    */ import java.util.Locale;
 /*  19:    */ import java.util.Map;
 /*  20:    */ import java.util.Map.Entry;
+
 /*  21:    */ import javax.validation.Valid;
+
 /*  22:    */ import org.slf4j.Logger;
 /*  23:    */ import org.slf4j.LoggerFactory;
 /*  24:    */ import org.springframework.beans.factory.annotation.Autowired;
 /*  25:    */ import org.springframework.context.MessageSource;
 /*  26:    */ import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 /*  27:    */ import org.springframework.ui.ModelMap;
 /*  28:    */ import org.springframework.validation.BindingResult;
 /*  29:    */ import org.springframework.web.bind.annotation.ModelAttribute;
@@ -374,6 +378,16 @@
 /* 374:388 */       attendanceDate.setPresentDays(Integer.valueOf(attendanceDate.getPresentDays().intValue() + 1));
 /* 375:    */     }
 /* 376:    */   }
+@RequestMapping(value={"/hr_employee_report.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
+public ModelAndView employeeReport(Model model)
+{
+  logger.debug("Calling the reports of the employees");
+  List<Employees> employees = this.employeesDAO.getList();
+  logger.debug("Total employees found:" + employees.size());
+  ModelAndView report =  new ModelAndView("employee_report");
+  report.getModelMap().put("employees", employees);
+  return report;
+}
 /* 377:    */ }
 
 
