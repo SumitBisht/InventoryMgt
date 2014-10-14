@@ -59,25 +59,7 @@ public class InvoiceController {
 		return modelAndView;
 	}
 	
-	/*
-	 * Maps to the incoming data from the invoice form
-	 */
-	@RequestMapping(value = { "/addInvoice.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.POST })
-	public ModelAndView saveInvoiceData(@ModelAttribute("invoice") @Valid Invoice invoice, BindingResult result, ModelMap model, Locale locale) throws Exception {
-		logger.info("Starting the save of data.");
-		String status="";
-		if(!result.hasErrors()){
-			status = "received the invoice data ";
-			logger.info(status+invoice.toString());
-			int i = (Integer)this.invoiceDAO.insert(invoice).intValue();
-			logger.info("Data inserted successfully with value: "+i);
-		}else{
-			status = "Received errors on submitting the invoice form.";
-			logger.error(status);
-		}
-
-		return invoiceEntryDisplay(status);
-	}	
+	
 	/*
 	 * Provides the report of the cash/box collections of the different reports
 	 */
@@ -103,5 +85,43 @@ public class InvoiceController {
 		mav.getModelMap().put("invoices", invoices);
 		mav.getModelMap().put("header", "Bank based invoice");
 		return mav;
+	}	
+	/*
+	 * Makes the invoice editable
+	 */
+	@RequestMapping(value = { "/edit-invoice.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView invoiceEditDisplay(@RequestParam("id") int id, Locale locale, @RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error) throws Exception {
+		logger.info("Fetching the invoice from the database for editing.");
+		Invoice existingInvoice = this.invoiceDAO.getRecordByPrimaryKey(id);
+		List<Item> itemList = null;
+		try {
+			logger.info("Fetching items for the invoice.");
+			itemList = this.itemDAO.getList();			
+		} catch (Exception e) {
+			logger.error("Error in fetching items for the invoice: "+e.getMessage());
+		}
+		ModelAndView modelAndView = new ModelAndView("invoice_data_entry");
+		modelAndView.getModelMap().put("invoice", existingInvoice);
+		modelAndView.getModelMap().put("items", itemList);
+		return modelAndView;
+	}
+	
+	
+	/*
+	 * Updates the invoice data and informs the user of the process
+	 */
+	@RequestMapping(value = { "/updateInvoice.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.POST })
+	public ModelAndView updateInvoiceData(@ModelAttribute("invoice") @Valid Invoice invoice, BindingResult result, ModelMap model, Locale locale) throws Exception {
+		logger.info("Updating invoice.");
+		String status="";
+		int updationResult = this.invoiceDAO.update(invoice);
+		if(updationResult>0){
+			status = "Updated the invoice data";
+		}else{
+			status = "Error in updation of invoice data.";
+			logger.error(status);
+		}
+
+		return invoiceEntryDisplay(status);
 	}
 }
