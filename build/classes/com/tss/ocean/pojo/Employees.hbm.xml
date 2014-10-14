@@ -173,6 +173,12 @@
         <property name="passportExpiryDate" type="timestamp">
             <column name="passport_expiry_date" />
         </property>
+         <property name="iqamaNumber" type="string">
+            <column name="iqama_number" />
+        </property>
+        <property name="iqamaExpiryDate" type="timestamp">
+            <column name="iqama_expiry_date" />
+        </property>
         <property name="salary" type="java.lang.Long">
             <column name="salary" />
         </property>
