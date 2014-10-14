@@ -8,7 +8,7 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="date" type="date">
+        <property name="date" type="string">
             <column name="bill_date" />
         </property>
         <property name="buyerName" type="string">
@@ -20,18 +20,20 @@
         <property name="boxMode" type="java.lang.Boolean">
             <column name="boxMode" />
         </property>
-        <set name="items" cascade="none" table="invoiced_item" lazy="false">
-            <key column="invoice_id" />
-            <many-to-many column="item_id" class="com.tss.ocean.pojo.Item" lazy="false" />
-        </set>
-        <property name="discount" type="java.lang.Float">
+        <property name="discount" type="java.math.BigDecimal">
             <column name="discount" />
         </property>
-        <property name="tax" type="java.lang.Float">
+        <property name="tax" type="java.math.BigDecimal">
             <column name="tax" />
         </property>
-        <property name="grossAmount" type="java.lang.Float">
+        <property name="grossAmount" type="java.math.BigDecimal">
             <column name="amount" />
+        </property>
+        <property name="item_id" type="java.lang.Integer">
+        	<column name="item_id" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+        	<column name="quantity" />
         </property>
     </class>
 </hibernate-mapping>
