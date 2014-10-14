@@ -115,6 +115,8 @@
                 <spring:message code="label.employee.fax.placeholder" var="faxplaceholder" text="Default Text" />              
                 <spring:message code="label.employee.passportno.placeholder" var="passportnoplaceholder" text="Default Text" />
                 <spring:message code="label.employee.passportexpiry.placeholder" var="passportexoirydateplaceholder" text="Default Text" />
+                <spring:message code="label.employee.iqamano.placeholder" var="iqamaplaceholder" text="Default Text" />
+                <spring:message code="label.employee.iqamaexpiry.placeholder" var="iqamaexoirydateplaceholder" text="Default Text" />
                 <spring:message code="label.employee.salary.placeholder" var="salaryplaceholder" text="Default Text" />
                 <spring:message code="label.employee.accountnumber.placeholder" var="accountnumberplaceholder" text="Default Text" />
                 <spring:message code="label.employee.bank.placeholder" var="bankplaceholder" text="Default Text" />
@@ -433,10 +435,30 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.employee.passportexpiry" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">                                            
-                                                <input type="text" class="form-control datepicker" name="passportExpiryDate" path="passportExpiryDate" value="${passportexoirydateplaceholder}" placeholder="${passportexoirydateplaceholder}" />
+                                                <form:input type="text" class="form-control datepicker" name="passportExpiryDate" path="passportExpiryDate"  placeholder="${passportexoirydateplaceholder}" />
                                                 <form:errors path="passportExpiryDate" cssClass="error" />
                                             </div>
                                         </div>
+                                        
+                                        
+                                      <div class="form-group">
+                                            <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.iqamano" text="Default Text"/></label>
+                                            <div class="col-sm-8 col-xs-12">                                            
+                                                <form:input type="text" class="form-control" path="iqamaNumber" placeholder="${iqamaplaceholder}" />
+                                                <form:errors path="iqamaNumber" cssClass="error" />
+                                            </div>
+                                        </div>
+                                        
+                                
+                                        <div class="form-group">
+                                            <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.employee.iqamaexpiry" text="Default Text"/></label>
+                                            <div class="col-sm-8 col-xs-12">                                            
+                                                <form:input type="text" class="form-control datepicker" path="iqamaExpiryDate" placeholder="${iqamaexoirydateplaceholder}" />
+                                                <form:errors path="iqamaExpiryDate" cssClass="error" />
+                                            </div>
+                                        </div>
+                                        
+                                        
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.salary" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">                                            

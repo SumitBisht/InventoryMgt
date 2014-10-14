@@ -550,8 +550,11 @@ if (!result.hasErrors())
 /* 512:527 */         return mav.addObject("success", Utilities.getSpringMessage(this.messageSource, "employee.update.success", locale));
 /* 513:    */       }
 /* 514:530 */       logger.warn("Error occurred updating employee categry:{0}", employees);
-/* 515:531 */       return new ModelAndView("edit_employee", model).addObject("error", Utilities.getSpringMessage(this.messageSource, "employee.update.error", locale));
-/* 516:    */     }
+/* 515:531 */     
+
+
+/*return new ModelAndView("edit_employee", model).addObject("error", Utilities.getSpringMessage(this.messageSource, "employee.update.error", locale));
+*//* 516:    */     }
 /* 517:535 */     logger.warn("Employee  values are not valid:", employees);
 /* 518:536 */     List<Employees> employeeList = this.employeesDAO.getList();
 /* 519:537 */     List<EmployeeDepartment> departmentList = this.employeeDepartmentDAO.getList();
