@@ -764,3 +764,22 @@ CREATE TABLE `usertype` (
 #
 
 INSERT INTO `usertype` VALUES (1,'admin',NULL,'2014-09-30 22:29:58',NULL);
+
+DROP TABLE IF EXISTS `invoice`;
+
+CREATE TABLE IF NOT EXISTS `invoice` (
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bill_date` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `buyername` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `boxmode` tinyint(1) DEFAULT NULL,
+  `discount` decimal(10,2) DEFAULT '0.00',
+  `tax` decimal(10,2) DEFAULT '0.00',
+  `amount` decimal(10,2) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='invoice' AUTO_INCREMENT=6 ;
+
+
+
