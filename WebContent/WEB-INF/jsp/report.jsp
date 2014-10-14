@@ -43,22 +43,20 @@
                             <div id='cssmenu'>
                                 <ul>
 
-                                    <li class='has-sub active'><a href='#'><span>ITEMS</span></a>
+                                    <li class='has-sub active'><a href='#'><span>Reports</span></a>
                                         <ul style='display: block;'>
-                                            <li class="active"><a href='item.html'><span>Items</span></a></li>
-                                            <li><a href='item_category.html'><span>Item Category</span></a></li>
-                                            <li class='last'><a href='item_unit.html'><span>Item Units</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class=''><a href='purchase_order.html'><span>Purchase Order</span></a></li>
-                                    <li class=''><a href='purchase_requisition.html'><span>Purchase Requisition</span></a></li>
-                                    <li class='last'><a href='account.html'><span><spring:message code="menu.account" text="Label value is missing !!!"/></span></a></li>
-                                </ul>
+                                            <li class="active"><a href='report.htm'><span>Items</span></a></li>
+                                            <li><a href='hr_employee_report.html'><span>Employee</span></a></li>
+                                                  </ul>
                             </div>
                             <!-- END MUNU -->    
 
                         </div>
                     </div>
+                    
+                    
+                    
+                    
                     <div class="col-md-9">
                         <div class="catagory-main-box top-radius">
                             <div class="cat-box-title cat-title-font top-radius">Items List</div>
@@ -66,11 +64,91 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="demo">
                                     <div class="row tb-margin">
-                                        <div class="col-sm-4">
-                                            <a href="add-item.html" class="btn btn-info add-row addrow-btn-left">Add Item</a>
-                                        </div>
-
+                                    
+                                    
+                                       
+ <form action="searchitembyname.htm">
+ 
+ <div class="col-md-3">
+               </div>  
+                      <div class="col-md-3">
+                      Items By Name
+                      </div>
+                     
+                       <div class="col-md-3">
+                      <input type="text" class="form-controll" name="query">
+                      </div>
+                     
+                     
+                     </form>
                                     </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <!--  -->
+ 
+ 
+  <div class="row tb-margin">
+                                    
+               <div class="col-md-3">
+               </div>                     
+                                      
+ <form action="searchitembyCategory.htm">
+                      <div class="col-md-3">
+                      Items By Category
+                      </div>
+                     
+                       <div class="col-md-3">
+ <select class="form-control" name="category">
+                                                <c:forEach items="${itemTypeList}" var="itemtypeid">
+                                                    <option value="${itemtypeid.id}"><c:out value="${itemtypeid.name}" /></option>
+                                                </c:forEach>
+                                            </select>                      
+                      </div>
+                      <div class="col-md-3">
+                                            <input type="submit" class="btn btn-info add-row addrow-btn-left" value="Search"/> 
+                                        </div>
+                     
+                     </form>
+                                    </div>
+                     
+ 
+ <!-- By stock -->
+ 
+ <div class="row tb-margin">
+                                    
+                                   
+                                      
+ <form action="searchitembyStock.htm">
+                      <div class="col-md-3">
+                      Items By Current Stock
+                      </div>
+                     
+                       <div class="col-md-3">
+ <select class="form-control" name="sign">
+              <option value="1"><c:out value="EQ" /></option>
+<option value="2"><c:out value="LT" /></option>
+<option value="3"><c:out value="GT" /></option>
+                                            </select>      
+                                            
+                                            
+                                                          
+                      </div>
+                      <div class="col-md-3">
+                      <input type="number" name="stock"/>   
+                      </div>
+                      
+                      <div class="col-md-3">
+                                            <input type="submit" class="btn btn-info add-row addrow-btn-left" value="Search"/> 
+                                        </div>
+                     
+                     </form>
+                                    </div>
+ 
+ 
+ 
                                     <table id="dttable" class="table table-bordered table-striped" data-filter="#filter" data-page-size="5">
                                         <thead class="orange-bg border-t">
                                             <tr>

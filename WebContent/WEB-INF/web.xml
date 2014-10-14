@@ -25,6 +25,14 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	<error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/jsp/pagenotfound.jsp</location>
+</error-page> 
+<error-page>
+    <error-code>500</error-code>
+    <location>/pagenotfound.jsp</location>
+</error-page> 
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

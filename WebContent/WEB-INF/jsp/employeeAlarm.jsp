@@ -74,8 +74,9 @@ $(document).ready(function() {
                                    <c:forEach var="item" items="${list}">
                                    <tr>
                                    <td> 
+                                  
                            <a href="UpdateItem.html?updateItemId=${item.id}" >   <div id="blink" >     
-                                 ${item.name} Is reached to low stock. Remaining stock is ${item.currstock}  ${item.unitid.name}
+                                 ${item.firstName} Is reached to low stock. Remaining stock is ${item.passportExpiryDate} 
                                   </div> </a>
                                    </td>
                                   

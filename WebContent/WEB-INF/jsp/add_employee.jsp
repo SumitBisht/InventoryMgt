@@ -82,6 +82,8 @@
                 <spring:message code="label.employee.firstname.placeholder" var="firstnameplaceholder" text="Default Text" />
                 <spring:message code="label.employee.lastname.placeholder" var="lastnameplaceholder" text="Default Text" />     
                 <spring:message code="label.employee.middlename.placeholder" var="middlenameplaceholder" text="Default Text" /> 
+                <spring:message code="label.employee.user_name.placeholder" var="usernameplaceholder" text="Default Text" />
+                <spring:message code="label.employee.password.placeholder" var="passwordplaceholder" text="Default Text" />  
                 <spring:message code="label.employee.gender.placeholder" var="genderplaceholder" text="Default Text" /> 
                 <spring:message code="label.employee.jobtitle.placeholder" var="jobtitleplaceholder" text="Default Text" /> 
                 <spring:message code="label.employee.department.placeholder" var="departmentplaceholder" text="Default Text" /> 
@@ -115,6 +117,8 @@
                 <spring:message code="label.employee.fax.placeholder" var="faxplaceholder" text="Default Text" />
                 <spring:message code="label.employee.passportno.placeholder" var="passportnoplaceholder" text="Default Text" />
                 <spring:message code="label.employee.passportexpiry.placeholder" var="passportexoirydateplaceholder" text="Default Text" />
+                <spring:message code="label.employee.iqamano.placeholder" var="iqamaplaceholder" text="Default Text" />
+                <spring:message code="label.employee.iqamaexpiry.placeholder" var="iqamaexoirydateplaceholder" text="Default Text" />
                 <spring:message code="label.employee.salary.placeholder" var="salaryplaceholder" text="Default Text" />
                 <spring:message code="label.employee.accountnumber.placeholder" var="accountnumberplaceholder" text="Default Text" />
                 <spring:message code="label.employee.bank.placeholder" var="bankplaceholder" text="Default Text" />
@@ -154,7 +158,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.employee.joiningdate" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">                                            
-                                                <input type="date" class="form-control" path="joiningDate" placeholder="${joiningdateplaceholder}" />
+                                                <input type="text" class="form-control datepicker" path="joiningDate" placeholder="${joiningdateplaceholder}" />
                                                 <form:errors path="joiningDate" cssClass="error" />
                                             </div>
                                         </div>
@@ -181,6 +185,23 @@
                                                 <form:errors path="middleName" cssClass="error" />
                                             </div>
                                         </div>
+                                        
+                                         <div class="form-group">
+                                            <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.user_name" text="Default Text"/></label>
+                                            <div class="col-sm-8 col-xs-12">                                            
+                                                <form:input type="text" class="form-control" path="username" placeholder="${usernameplaceholder}" />
+                                                <form:errors path="username" cssClass="error" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.password" text="Default Text"/></label>
+                                            <div class="col-sm-8 col-xs-12">                                            
+                                                <form:input type="text" class="form-control" path="password" placeholder="${passwordplaceholder}" />
+                                                <form:errors path="password" cssClass="error" />
+                                            </div>
+                                        </div>
+                                        
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.gender" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">
@@ -201,7 +222,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.department" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">
-                                                <form:select class="form-control" path="employeeCategoryId">
+                                                <form:select class="form-control" path="employeeDepartmentId">
                                                     <form:option value=""><spring:message code="label.employee.department.placeholder" text="Default Text"/></form:option>
                                                     <form:options items="${employeeDepartmentList}" itemLabel="department" itemValue="id"/>
                                                 </form:select>
@@ -249,7 +270,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.employee.birthdate" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">                                            
-                                                <form:input type="date" class="form-control" path="dateOfBirth" placeholder="${birthdateplaceholder}" />
+                                                <form:input type="text" class="form-control datepicker" path="dateOfBirth" placeholder="${birthdateplaceholder}" />
                                                 <form:errors path="dateOfBirth" cssClass="error" />
                                             </div>
                                         </div>
@@ -431,8 +452,25 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.employee.passportexpiry" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">                                            
-                                                <form:input type="date" class="form-control" path="passportExpiryDate" placeholder="${passportexoirydateplaceholder}" />
+                                                <form:input type="text" class="form-control datepicker" path="passportExpiryDate" placeholder="${passportexoirydateplaceholder}" />
                                                 <form:errors path="passportExpiryDate" cssClass="error" />
+                                            </div>
+                                            
+                                            
+                                        </div><div class="form-group">
+                                            <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.iqamano" text="Default Text"/></label>
+                                            <div class="col-sm-8 col-xs-12">                                            
+                                                <form:input type="text" class="form-control" path="iqamaNumber" placeholder="${iqamaplaceholder}" />
+                                                <form:errors path="iqamaNumber" cssClass="error" />
+                                            </div>
+                                        </div>
+                                        
+                                
+                                        <div class="form-group">
+                                            <label class="col-sm-4 col-xs-12 control-label search-text visible-lg visible-md visible-sm"><spring:message code="label.employee.iqamaexpiry" text="Default Text"/></label>
+                                            <div class="col-sm-8 col-xs-12">                                            
+                                                <form:input type="text" class="form-control datepicker" path="iqamaExpiryDate" placeholder="${iqamaexoirydateplaceholder}" />
+                                                <form:errors path="iqamaExpiryDate" cssClass="error" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -506,7 +544,7 @@
         <!-- Jquery UI Javascript -->
         <script src="js/jquery-ui.js"></script>
         <script type="text/javascript">
-                                            $('input[type=date]').datepicker({dateFormat: 'dd/mm/yy'});
+                                            $('.datepicker').datepicker({dateFormat: 'dd/mm/yy'});
         </script>
     </body>
 </html>

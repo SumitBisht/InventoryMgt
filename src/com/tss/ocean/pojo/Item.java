@@ -22,7 +22,7 @@
 /*  22:    */   @Min(value=0L, message="The minimum stock should be 0")
 /*  23:    */   private int currstock;
 /*  24:    */   private Itemunit unitid;
-/*  25:    */   
+/*  25:    */   private String barcode;
 /*  26:    */   public int hashCode()
 /*  27:    */   {
 /*  28: 33 */     int hash = 3;
@@ -185,7 +185,13 @@
 /* 185:    */   {
 /* 186:173 */     return "Item{id=" + this.id + ", name=" + this.name + ", alias=" + this.alias + ", categoryid=" + this.categoryid + ", typeid=" + this.typeid + ", price=" + this.price + ", taxid=" + this.taxid + ", currstock=" + this.currstock + ", unitid=" + this.unitid + '}';
 /* 187:    */   }
-/* 188:    */ }
+/* 188:    */
+public String getBarcode() {
+	return barcode;
+}
+public void setBarcode(String barcode) {
+	this.barcode = barcode;
+} }
 
 
 /* Location:           C:\Users\Raz\Desktop\InvMgmt\WEB-INF\classes\

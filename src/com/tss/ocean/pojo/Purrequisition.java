@@ -33,6 +33,11 @@
 /*  33: 35 */   private Set<Item> items = new HashSet();
 /*  34: 36 */   private List<Purrequisitiondt> purrequisitiondts = new ArrayList();
 /*  35:    */   
+
+
+private int approvalStatus;
+private int processed;
+
 /*  36:    */   public Purrequisition() {}
 /*  37:    */   
 /*  38:    */   public Purrequisition(Date createdat)
@@ -211,7 +216,19 @@
 /* 211:    */   {
 /* 212:183 */     this.purrequisitiondts = purrequisitiondts;
 /* 213:    */   }
-/* 214:    */ }
+/* 214:    */
+public int getApprovalStatus() {
+	return approvalStatus;
+}
+public void setApprovalStatus(int approvalStatus) {
+	this.approvalStatus = approvalStatus;
+}
+public int getProcessed() {
+	return processed;
+}
+public void setProcessed(int processed) {
+	this.processed = processed;
+} }
 
 
 /* Location:           C:\Users\Raz\Desktop\InvMgmt\WEB-INF\classes\
