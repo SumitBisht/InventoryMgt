@@ -1,5 +1,5 @@
-﻿# Host: localhost  (Version: 5.6.20)
-# Date: 2014-10-13 18:48:30
+﻿# Host: localhost  (Version: 5.5.40)
+# Date: 2014-10-14 12:42:10
 # Generator: MySQL-Front 5.3  (Build 4.170)
 
 /*!40101 SET NAMES utf8 */;
@@ -372,15 +372,17 @@ CREATE TABLE `employees` (
   `account_number` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `salary` int(10) unsigned DEFAULT NULL,
   `code_number` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `iqama_number` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `iqama_expiry_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_employees_on_employee_number` (`employee_number`(10))
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 #
 # Data for table "employees"
 #
 
-INSERT INTO `employees` VALUES (1,1,'001','admin','admin','2014-09-01','Admin','sys','1',1,'',NULL,1,NULL,NULL,'','',NULL,NULL,1,NULL,'2014-09-01','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','','','application/octet-stream',X'',NULL,NULL,0,NULL,'',NULL,NULL,'',NULL,''),(8,2,'002','user2','user2','2014-09-01','Admin2','system','admin2',1,'',NULL,1,NULL,NULL,'','',NULL,NULL,1,NULL,'2014-09-01','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','','','application/octet-stream',X'',NULL,NULL,0,NULL,'',NULL,NULL,'',NULL,''),(9,3,'4545',NULL,NULL,NULL,'rtt','rete','ertert',1,'ertet',NULL,1,1,NULL,'dftert','',NULL,NULL,NULL,NULL,'2014-10-23','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','','','application/octet-stream',X'',NULL,NULL,0,NULL,'','2014-10-23 00:00:00',NULL,'',NULL,'');
+INSERT INTO `employees` VALUES (1,1,'001',NULL,NULL,'2014-09-01','Admin','sys','1',1,'',NULL,1,1,NULL,'','',NULL,NULL,NULL,NULL,'2014-09-01','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'23234242213','2014-10-29 00:00:00',NULL,'',NULL,'',NULL,NULL),(8,2,'002','admin','admin','2014-09-01','Admin2','system','admin2',1,'',NULL,1,NULL,NULL,'','',NULL,NULL,NULL,NULL,'2014-09-01','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','2014-10-28 00:00:00',NULL,'',NULL,'','',NULL),(10,2,'323',NULL,NULL,'2014-10-17','Ø§ÙØ§Ø³Ù Ø§ÙØ£ÙÙ','kumar','singh',1,'12121212',NULL,2,1,NULL,'mca','SDSDDS',32,2323,NULL,NULL,'2014-09-01','',1,'1','1','1','',NULL,'1','1','1','1',NULL,'1','1','Q','Q','ZAQ',NULL,'1','1','1','1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'10','2014-10-01 00:00:00',1,'323232323232323',323232323,'2323','2120','2014-10-31 00:00:00');
 
 #
 # Structure for table "item"
