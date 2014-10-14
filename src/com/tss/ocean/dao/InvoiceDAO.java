@@ -11,7 +11,12 @@ import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-
+/**
+ * Modifies the facility to get invoices on the basis of cash/bank mode
+ * of payment of the invoice in addition to the available methods.
+ * @author sumit bisht
+ *
+ */
 @Repository("invoiceDAO")
 public class InvoiceDAO
   extends GenericDAOImpl<Invoice, Integer>
