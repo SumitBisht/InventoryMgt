@@ -43,7 +43,7 @@
                 <li><a href="employee.html"><spring:message code="menu.hr"/></a></li>
                 <li><a href="finance_management.html"><spring:message code="menu.finance"/></a></li>
                                <li><a href="#contact"><spring:message code="menu.cashier"/></a></li>
-                               <li><a href="#contact"><spring:message code="menu.purchase"/></a></li>
+                               <li><a href="purchase_request.html"><spring:message code="menu.purchase"/></a></li>
                                <li><a href="#contact"><spring:message code="menu.approve"/></a></li>
                
                

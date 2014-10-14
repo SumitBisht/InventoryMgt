@@ -7,10 +7,12 @@
 </head>
 
 <body>
+
+   <jsp:include page="header.jsp" />
 <div>
-  <table width="200" border="1">
+  <table width="100%" border="1">
     <tr>
-      <td><img src="../../images/404 Mainstage Image.jpg" alt="404" width="1271" height="520" /></td>
+      <td><img src="images/404_Mainstage_Image.jpg" alt="404" width="1271" height="520" /></td>
     </tr>
     <tr>
       <td>Go Home </td>

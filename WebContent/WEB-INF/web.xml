@@ -27,7 +27,7 @@
 	</welcome-file-list>
 	<error-page>
     <error-code>404</error-code>
-    <location>/404.jsp</location>
+    <location>/WEB-INF/jsp/pagenotfound.jsp</location>
 </error-page> 
 <error-page>
     <error-code>500</error-code>
