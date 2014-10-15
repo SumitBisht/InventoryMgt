@@ -58,7 +58,22 @@ public class InvoiceController {
 		modelAndView.getModelMap().put("items", itemList);
 		return modelAndView;
 	}
+	@RequestMapping(value = { "/addInvoice.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.POST })
+		public ModelAndView saveInvoiceData(@ModelAttribute("invoice") @Valid Invoice invoice, BindingResult result, ModelMap model, Locale locale) throws Exception {
+			logger.info("Starting the save of data.");
+			String status="";
+			if(!result.hasErrors()){
+				status = "received the invoice data ";
+				logger.info(status+invoice.toString());
+				int i = (Integer)this.invoiceDAO.insert(invoice).intValue();
+				logger.info("Data inserted successfully with value: "+i);
+			}else{
+				status = "Received errors on submitting the invoice form.";
+				logger.error(status);
+			}
 	
+			return invoiceEntryDisplay(status);
+		}
 	
 	/*
 	 * Provides the report of the cash/box collections of the different reports

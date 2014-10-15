@@ -20,6 +20,9 @@
         <property name="price" type="big_decimal">
             <column name="price" precision="15" not-null="true" />
         </property>
+        <property name="barcode" type="string">
+            <column name="barcode" />
+        </property>
         <property name="taxid" type="int">
             <column name="taxid" not-null="true" />
         </property>

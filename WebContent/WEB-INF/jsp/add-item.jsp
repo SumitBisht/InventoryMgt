@@ -124,6 +124,16 @@
                                             <form:errors path="price" cssClass="error" />
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-4 col-xs-12 control-label search-text"> Barcode:</label>
+                                        <div class="col-sm-8 col-xs-12">
+                                            <form:input  type="text" class="form-control" path="barcode" placeholder="Barcode"/>
+                                            <form:errors path="barcode" cssClass="error" />
+                                        </div>
+                                    </div>
+                                    
+                                    
                                     <div class="row text-pad-top visible-lg visible-md visible-sm">
                                         <div class="div-center">
                                             <input type="submit" class="btn btn-orange"  onclick="return submitDetailsForm();" value="Save" />
@@ -176,6 +186,14 @@
                                             <form:errors path="price" cssClass="error" />
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-sm-8 col-xs-12">
+                                            <form:input  type="text" class="form-control" path="barcode" placeholder="Barcode"/>
+                                            <form:errors path="barcode" cssClass="error" />
+                                        </div>
+                                   	 </div>
+                                    
                                     <div class="row text-pad-top visible-xs ">
                                         <div class="div-center-xs">
                                             <input type="submit" class="btn btn-orange"  onclick="return submitDetailsForm();" value="Save" />
