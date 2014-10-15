@@ -185,6 +185,35 @@
                                                 <form:errors path="middleName" cssClass="error" />
                                             </div>
                                         </div>
+                                        
+                                        
+                                        
+                                        
+                                        <!--username password  -->
+                                        
+                                        
+                                        
+                                      <div class="form-group">
+                                            <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.user_name" text="Default Text"/></label>
+                                            <div class="col-sm-8 col-xs-12">                                            
+                                                <form:input type="text" class="form-control" path="username" placeholder="${usernameplaceholder}" />
+                                                <form:errors path="username" cssClass="error" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.password" text="Default Text"/></label>
+                                            <div class="col-sm-8 col-xs-12">                                            
+                                                <form:input type="text" class="form-control" path="password" placeholder="${passwordplaceholder}" />
+                                                <form:errors path="password" cssClass="error" />
+                                            </div>
+                                        </div>
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
                                         <div class="form-group">
                                             <label class="col-sm-4 col-xs-12 control-label search-text"><spring:message code="label.employee.gender" text="Default Text"/></label>
                                             <div class="col-sm-8 col-xs-12">

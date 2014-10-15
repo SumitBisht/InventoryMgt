@@ -46,7 +46,7 @@
                                     <li class='has-sub active'><a href='#'><span>Reports</span></a>
                                         <ul style='display: block;'>
                                             <li class="active"><a href='report.htm'><span>Items</span></a></li>
-                                            <li><a href='employee.'><span>Employee</span></a></li>
+                                            <li><a href='hr_employee_report.html'><span>Employee</span></a></li>
                                                   </ul>
                             </div>
                             <!-- END MUNU -->    

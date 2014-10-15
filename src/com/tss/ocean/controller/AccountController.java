@@ -31,7 +31,7 @@
 /*  31:    */   private MessageSource messageSource;
 /*  32:    */   
 /*  33:    */   @RequestMapping(value={"/add-account.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  34:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('account','add')")
+/*  34:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  35:    */   public ModelAndView add_account_get(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error)
 /*  36:    */     throws Exception
 /*  37:    */   {
@@ -50,7 +50,7 @@
 /*  50:    */   }
 /*  51:    */   
 /*  52:    */   @RequestMapping(value={"/add-account.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/*  53:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('account','add')")
+/*  53:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  54:    */   public ModelAndView add_account_post(@ModelAttribute("account") @Valid Accounts account, BindingResult result, ModelMap model, @RequestParam(value="imageUpload", required=false) MultipartFile upload, Locale locale)
 /*  55:    */     throws Exception
 /*  56:    */   {
@@ -102,7 +102,7 @@
 /* 102:    */   }
 /* 103:    */   
 /* 104:    */   @RequestMapping(value={"/edit-account.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 105:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('account','update')")
+/* 105:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 106:    */   public ModelAndView edit_account_post(@ModelAttribute("account") @Valid Accounts account, BindingResult result, ModelMap model, @RequestParam(value="imageUpload", required=false) MultipartFile upload, Locale locale)
 /* 107:    */     throws Exception
 /* 108:    */   {
@@ -132,7 +132,7 @@
 /* 132:    */   }
 /* 133:    */   
 /* 134:    */   @RequestMapping(value={"/account.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/* 135:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('account','view')")
+/* 135:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 136:    */   public ModelAndView account(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error)
 /* 137:    */     throws Exception
 /* 138:    */   {
@@ -151,7 +151,7 @@
 /* 151:    */   
 /* 152:    */   @RequestMapping({"/delete-account.html"})
 /* 153:    */   @ResponseBody
-/* 154:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('account','delete')")
+/* 154:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 155:    */   public boolean delete_account(@RequestParam("id") int id)
 /* 156:    */     throws Exception
 /* 157:    */   {

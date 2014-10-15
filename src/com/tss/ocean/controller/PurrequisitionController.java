@@ -76,8 +76,10 @@
 /*  76:    */   }
 /*  77:    */   
 /*  78:    */   @RequestMapping(value={"/add-purchase_requisition.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  79:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','add')")
-/*  80:    */   public ModelAndView add_purrequisition_get(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, HttpServletRequest request, Locale locale)
+/*  79:       @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','add')")
+*//*  80:    */  
+@PreAuthorize("hasAnyRole('ROLE_USER')")
+public ModelAndView add_purrequisition_get(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, HttpServletRequest request, Locale locale)
 /*  81:    */     throws Exception
 /*  82:    */   {
 /*  83: 95 */     LOG.debug("add-purchase_requisition called.");
@@ -97,8 +99,10 @@
 /*  97:    */   }
 /*  98:    */   
 /*  99:    */   @RequestMapping(value={"/add-purchase_requisition.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 100:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','add')")
-/* 101:    */   public ModelAndView add_purrequisition_post(@ModelAttribute("purrequisition") @Valid Purrequisition purrequisition, BindingResult result, ModelMap model, Locale locale, Principal principal)
+/* 100:    */  
+@PreAuthorize("hasAnyRole('ROLE_USER')")
+/*@PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','add')")
+*//* 101:    */   public ModelAndView add_purrequisition_post(@ModelAttribute("purrequisition") @Valid Purrequisition purrequisition, BindingResult result, ModelMap model, Locale locale, Principal principal)
 /* 102:    */     throws Exception
 /* 103:    */   {
 /* 104:117 */     LOG.debug("add-purchase_requisition-post called.");
@@ -158,8 +162,11 @@
 /* 158:    */   }
 /* 159:    */   
 /* 160:    */   @RequestMapping(value={"/edit-purchase_requisition.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/* 161:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','update')")
-/* 162:    */   public ModelAndView edit_purrequisition_get(@RequestParam("id") int id, Locale locale, @RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error)
+/* 161:    */  
+
+@PreAuthorize("hasAnyRole('ROLE_USER')")
+/*@PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','update')")
+*//* 162:    */   public ModelAndView edit_purrequisition_get(@RequestParam("id") int id, Locale locale, @RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error)
 /* 163:    */     throws Exception
 /* 164:    */   {
 /* 165:181 */     LOG.debug("edit-purchase_requisition called.");
@@ -191,8 +198,10 @@
 /* 191:    */   }
 /* 192:    */   
 /* 193:    */   @RequestMapping(value={"/edit-purchase_requisition.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 194:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','update')")
-/* 195:    */   public ModelAndView edit_purrequisition_post(@ModelAttribute("purrequisition") @Valid Purrequisition purrequisition, BindingResult result, ModelMap model, Locale locale)
+/* 194:    */ 
+@PreAuthorize("hasAnyRole('ROLE_USER')")
+/*@PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','update')")
+*//* 195:    */   public ModelAndView edit_purrequisition_post(@ModelAttribute("purrequisition") @Valid Purrequisition purrequisition, BindingResult result, ModelMap model, Locale locale)
 /* 196:    */     throws Exception
 /* 197:    */   {
 /* 198:212 */     LOG.debug("edit-purchase_requisition-post called.");
@@ -219,8 +228,11 @@
 /* 219:    */   }
 /* 220:    */   
 /* 221:    */   @RequestMapping(value={"/purchase_requisition.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/* 222:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','view')")
-/* 223:    */   public ModelAndView purrequisition(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale, Principal principal)
+/* 222:    */
+@PreAuthorize("hasAnyRole('ROLE_USER')")
+
+/*@PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','view')")
+*//* 223:    */   public ModelAndView purrequisition(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale, Principal principal)
 /* 224:    */     throws Exception
 /* 225:    */   {
 /* 226:244 */     LOG.debug("purchase_requisition called.");
@@ -254,8 +266,10 @@
 /* 254:    */   
 /* 255:    */   @RequestMapping({"/delete-purchase_requisition.html"})
 /* 256:    */   @ResponseBody
-/* 257:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','delete')")
-/* 258:    */   public boolean delete_purrequisition(@RequestParam("id") int id)
+
+@PreAuthorize("hasAnyRole('ROLE_USER')")
+/* 257:       @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaserequisition','delete')")
+*//* 258:    */   public boolean delete_purrequisition(@RequestParam("id") int id)
 /* 259:    */     throws Exception
 /* 260:    */   {
 /* 261:281 */     LOG.debug("delete-purchase_requisition called.");
