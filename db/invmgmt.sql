@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.40)
-# Date: 2014-10-14 12:42:10
+# Date: 2014-10-14 23:51:34
 # Generator: MySQL-Front 5.3  (Build 4.170)
 
 /*!40101 SET NAMES utf8 */;
@@ -376,13 +376,13 @@ CREATE TABLE `employees` (
   `iqama_expiry_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_employees_on_employee_number` (`employee_number`(10))
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 #
 # Data for table "employees"
 #
 
-INSERT INTO `employees` VALUES (1,1,'001',NULL,NULL,'2014-09-01','Admin','sys','1',1,'',NULL,1,1,NULL,'','',NULL,NULL,NULL,NULL,'2014-09-01','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'23234242213','2014-10-29 00:00:00',NULL,'',NULL,'',NULL,NULL),(8,2,'002','admin','admin','2014-09-01','Admin2','system','admin2',1,'',NULL,1,NULL,NULL,'','',NULL,NULL,NULL,NULL,'2014-09-01','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','2014-10-28 00:00:00',NULL,'',NULL,'','',NULL),(10,2,'323',NULL,NULL,'2014-10-17','Ø§ÙØ§Ø³Ù Ø§ÙØ£ÙÙ','kumar','singh',1,'12121212',NULL,2,1,NULL,'mca','SDSDDS',32,2323,NULL,NULL,'2014-09-01','',1,'1','1','1','',NULL,'1','1','1','1',NULL,'1','1','Q','Q','ZAQ',NULL,'1','1','1','1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'10','2014-10-01 00:00:00',1,'323232323232323',323232323,'2323','2120','2014-10-31 00:00:00');
+INSERT INTO `employees` VALUES (1,1,'001','admin','admin','2014-09-01','Admin','sys','1',1,'',NULL,1,NULL,NULL,'','',NULL,NULL,1,NULL,'2014-09-01','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','','','application/octet-stream',X'',NULL,NULL,0,NULL,'',NULL,NULL,'',NULL,'',NULL,NULL),(8,2,'002','user2','user2','2014-09-01','Admin2','system','admin2',1,'',NULL,1,NULL,NULL,'','',NULL,NULL,1,NULL,'2014-09-01','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','','','application/octet-stream',X'',NULL,NULL,0,NULL,'',NULL,NULL,'',NULL,'',NULL,NULL),(9,3,'4545',NULL,NULL,NULL,'rtt','rete','ertert',1,'ertet',NULL,1,1,NULL,'dftert','',NULL,NULL,NULL,NULL,'2014-10-23','',NULL,'','','','',NULL,'','','','',NULL,'','','','','',NULL,'','','','','','','','','application/octet-stream',X'',NULL,NULL,0,NULL,'','2014-10-23 00:00:00',NULL,'',NULL,'',NULL,NULL);
 
 #
 # Structure for table "item"
@@ -585,7 +585,7 @@ CREATE TABLE `purreq_item` (
 # Data for table "purreq_item"
 #
 
-INSERT INTO `purreq_item` VALUES (1,2),(2,1),(2,2);
+INSERT INTO `purreq_item` VALUES (1,2),(2,1),(2,2),(9,2);
 
 #
 # Structure for table "purrequisition"
@@ -606,14 +606,16 @@ CREATE TABLE `purrequisition` (
   `price` decimal(15,2) DEFAULT NULL,
   `createdby` int(10) unsigned DEFAULT NULL,
   `updatedby` int(10) unsigned DEFAULT NULL,
+  `approvalStatus` tinyint(3) DEFAULT '0',
+  `processed` tinyint(3) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='purchase requisition ';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='purchase requisition ';
 
 #
 # Data for table "purrequisition"
 #
 
-INSERT INTO `purrequisition` VALUES (1,'1009946660534726753949927870281738355832',1,1,NULL,NULL,NULL,'2014-09-03 00:00:00',NULL,0,500.00,NULL,NULL),(2,'1229342777065735978814358205994209775224',1,1,NULL,NULL,NULL,'2014-09-02 00:00:00',NULL,1,200.00,NULL,NULL),(3,'450',1,5,NULL,NULL,NULL,'2014-09-20 19:26:19',NULL,NULL,500.00,1,NULL),(4,'249',1,5,NULL,NULL,NULL,'2014-09-20 19:33:07',NULL,NULL,50.00,1,NULL),(5,'795',1,5,NULL,NULL,NULL,'2014-09-21 11:38:25',NULL,NULL,500.00,1,NULL),(6,'575',1,1,NULL,NULL,NULL,'2014-09-21 00:00:00',NULL,NULL,500.00,NULL,NULL),(7,'240',1,1,NULL,NULL,NULL,'2014-09-21 00:00:00',NULL,NULL,500.00,NULL,NULL),(8,'193',1,1,NULL,NULL,1,'2014-09-21 12:15:09',NULL,NULL,5000.00,1,NULL);
+INSERT INTO `purrequisition` VALUES (1,'1009946660534726753949927870281738355832',1,1,NULL,NULL,NULL,'2014-09-03 00:00:00',NULL,0,500.00,NULL,NULL,0,0),(2,'1229342777065735978814358205994209775224',1,1,NULL,NULL,NULL,'2014-09-02 00:00:00',NULL,1,200.00,NULL,NULL,0,0),(3,'450',1,5,NULL,NULL,NULL,'2014-09-20 19:26:19',NULL,NULL,500.00,1,NULL,0,0),(4,'249',1,5,NULL,NULL,NULL,'2014-09-20 19:33:07',NULL,NULL,50.00,1,NULL,0,0),(5,'795',1,5,NULL,NULL,NULL,'2014-09-21 11:38:25',NULL,NULL,500.00,1,NULL,0,0),(6,'575',1,1,NULL,NULL,NULL,'2014-09-21 00:00:00',NULL,NULL,500.00,NULL,NULL,0,0),(7,'240',1,1,NULL,NULL,NULL,'2014-09-21 00:00:00',NULL,NULL,500.00,NULL,NULL,0,0),(8,'193',1,1,NULL,NULL,1,'2014-09-21 12:15:09',NULL,NULL,5000.00,1,NULL,1,0),(9,'411',1,1,NULL,NULL,1,'2014-10-14 18:52:04',NULL,1,888888888888.00,1,NULL,0,0);
 
 #
 # Structure for table "purrequisitiondt"

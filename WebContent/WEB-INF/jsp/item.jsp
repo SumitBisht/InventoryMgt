@@ -12,13 +12,40 @@
                     $('#deleteId').val(value);
                     $('#deleteForm').submit();
                 }
+                $(document).ready(function() {
+                	$(".bcTarget").each(function() {
+                	var bcdigits = $(this).attr('rel');
+                	$(this).barcode(bcdigits, "code39",{barWidth:1.5, barHeight:30});
+
+                	});
+                	});
+                
+                $( document ).ready(function() {
+                	
+/*                 	$(".bcTarget").barcode("1234567890128", "ean13");    
+ */                
+ 
+ 
+ 
+ 
+ 
+/*  $(".bcTarget").load(function(){
+	 
+	 
+	 alert('hello');
+ }
+		 
+ );
+ $(".bcod").children('.bcTarget').barcode(this.children('.bheaden').val(),'ean13');
+   */              	
+                });
             </script>
 
 
         </head>
 
         <body role="document">
-
+  
         <jsp:include page="headermenu.jsp"></jsp:include>
             <form action="DeleteItem.html" method="POST" id="deleteForm" name="deleteForm">
                 <input type="hidden" id="deleteId" name="deleteId">
@@ -90,6 +117,10 @@
                                                     Price
                                                 </th>
                                                 <th data-hide="phone">
+                                                    BarCode
+                                                </th>
+                                                
+                                                <th data-hide="phone">
                                                 <spring:message code="itemCategory.Action" text="Label value is missing !!!"/>
                                             </th>
                                         </tr>
@@ -102,6 +133,9 @@
                                                 <td><c:out value="${listVar.currstock}"/></td>
                                                 <td data-value="78025368997"><c:out value="${listVar.unitid.name}"/></td>
                                                 <td data-value="1"><span class="status-metro status-active" title="Active"><c:out value="${listVar.price}"/></span></td>
+                                               <td class="bcod"><div class="bcTarget" rel="${listVar.id+1000000000}"></div></td>
+                                               
+                                               
                                                 <td data-value="78025368997" style="text-align:center;">
                                                     <button onclick="submitDelete(<c:out value="${listVar.id}"/>);" class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                                                 </td>

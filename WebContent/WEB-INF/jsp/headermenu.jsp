@@ -44,7 +44,7 @@
                 <li><a href="finance_management.html"><spring:message code="menu.finance"/></a></li>
                                <li><a href="#contact"><spring:message code="menu.cashier"/></a></li>
                                <li><a href="purchase_request.html"><spring:message code="menu.purchase"/></a></li>
-                               <li><a href="#contact"><spring:message code="menu.approve"/></a></li>
+                               <li><a href="approve.html"><spring:message code="menu.approve"/></a></li>
                
                
                 <li><a href="report.htm"><spring:message code="menu.reports"/></a></li>

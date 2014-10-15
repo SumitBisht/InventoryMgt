@@ -142,7 +142,7 @@
 /* 142:    */     throws Exception
 /* 143:    */   {
 /* 144:164 */     logger.log(Level.OFF, "finance_management called.");
-/* 145:165 */     return "finance_management";
+/* 145:165 */     return "redirect:approvedForFinance.html";
 /* 146:    */   }
 /* 147:    */ }
 

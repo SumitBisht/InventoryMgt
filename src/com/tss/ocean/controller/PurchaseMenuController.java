@@ -48,6 +48,8 @@
 /*  48:    */   private IPurchaseApproverDAO purchaseApproversDAO;
 /*  49:    */   @Autowired
 /*  50:    */   private IPurrequisitionDAO purrequisitionDAO;
+
+
 /*  51:    */   @Autowired
 /*  52:    */   private IPurrequisitiondtDAO purrequisitiondtDAO;
 /*  53:    */   @Autowired
@@ -351,10 +353,131 @@
 /* 351:359 */     LOG.debug("Purrequisition with id {0} is already deleted", Integer.valueOf(id));
 /* 352:360 */     return updateResult;
 /* 353:    */   }
-/* 354:    */ }
+/* 354:    */ 
 
 
 /* Location:           C:\Users\Raz\Desktop\InvMgmt\WEB-INF\classes\
  * Qualified Name:     com.tss.ocean.controller.PurrequisitionController
  * JD-Core Version:    0.7.1
  */
+
+
+/* 332:    */   @RequestMapping({"/action.html"})
+/* 333:    */   
+/* 334:    */   public String approveNonapprove(@RequestParam("id") int id,@RequestParam("act") int act)
+/* 335:    */     throws Exception
+/* 336:    */   {
+/* 337:345 */     LOG.debug("delete_purrequisitiondt called.");
+    Purrequisition purrequissition  = (Purrequisition)this.purrequisitionDAO.getRecordByPrimaryKey(Integer.valueOf(id));
+/* 339:347 */     int updateResult = 0;
+/* 340:348 */     if (purrequissition != null)
+/* 341:    */     {
+/* 342:349 */       
+	purrequissition.setApprovalStatus(act);
+	
+	purrequisitionDAO.update(purrequissition);
+	
+/* 343:350 */       if (updateResult > 0)
+/* 344:    */       {
+/* 345:351 */         LOG.debug("Purrequisition with id {0} deleted successfully", purrequissition.getId());
+/* 346:352 */         return "redirect:approve.html";
+/* 347:    */       }
+/* 348:355 */       LOG.debug("Error occurred while deleting purrequisition with id {0}", purrequissition.getId());
+/* 346:352 */         return "redirect:approve.html";
+/* 350:    */     }
+/* 351:359 */     LOG.debug("Purrequisition with id {0} is already deleted", Integer.valueOf(id));
+/* 346:352 */         return "redirect:approve.html";
+/* 353:    */   }
+/* 354:    */ 
+
+
+
+
+
+
+
+
+/*ApproveModule*/
+
+@RequestMapping(value={"/approve.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
+/* 222:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
+/* 223:    */   public ModelAndView approve(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale, Principal principal)
+/* 224:    */     throws Exception
+/* 225:    */   {
+/* 226:244 */     LOG.debug("purchase_request called.");
+/* 227:245 */     ModelAndView mav = new ModelAndView("approve_request-list");
+/* 228:246 */     List<Accounts> accountsList = this.accountsDAO.getList();
+/* 229:    */     
+/* 230:248 */     String loggedinusername = principal.getName();
+/* 231:249 */     Employees employees = (Employees)this.employeesDAO.getRecordByKeyandValue("username", loggedinusername);
+/* 232:250 */     int userid = 0;
+/* 233:251 */     if (employees != null) {
+/* 234:252 */       userid = employees.getId().intValue();
+/* 235:    */     }
+/* 236:255 */     HashMap<Integer, String> accountMap = new HashMap(accountsList.size());
+/* 237:256 */     for (Accounts account : accountsList) {
+/* 238:257 */       accountMap.put(account.getId(), account.getName());
+/* 239:    */     }
+/* 240:262 */     mav.getModelMap().put("purrequisitionList", this.purrequisitionDAO.getListByCondition("t where t.nextapprovedby=" + userid));
+/* 241:    */     
+/* 242:    */ 
+/* 243:    */ 
+/* 244:266 */     mav.getModelMap().put("accountMap", accountMap);
+/* 245:267 */     mav.getModelMap().put("statusList", getStatusList(locale));
+/* 246:268 */     if (success != null) {
+/* 247:269 */       mav.getModelMap().put("success", success);
+/* 248:    */     }
+/* 249:271 */     if (error != null) {
+/* 250:272 */       mav.getModelMap().put("error", error);
+/* 251:    */     }
+/* 252:274 */     return mav;
+/* 253:    */   }
+
+
+
+
+
+
+
+
+@RequestMapping(value={"/approvedForFinance.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
+/* 222:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
+/* 223:    */   public ModelAndView approvedOrders(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale, Principal principal)
+/* 224:    */     throws Exception
+/* 225:    */   {
+/* 226:244 */     LOG.debug("purchase_request called.");
+/* 227:245 */     ModelAndView mav = new ModelAndView("approved_finance-list");
+/* 228:246 */     List<Accounts> accountsList = this.accountsDAO.getList();
+/* 229:    */     
+/* 230:248 */     String loggedinusername = principal.getName();
+/* 231:249 */     Employees employees = (Employees)this.employeesDAO.getRecordByKeyandValue("username", loggedinusername);
+/* 232:250 */     int userid = 0;
+/* 233:251 */     if (employees != null) {
+/* 234:252 */       userid = employees.getId().intValue();
+/* 235:    */     }
+/* 236:255 */     HashMap<Integer, String> accountMap = new HashMap(accountsList.size());
+/* 237:256 */     for (Accounts account : accountsList) {
+/* 238:257 */       accountMap.put(account.getId(), account.getName());
+/* 239:    */     }
+/* 240:262 */     mav.getModelMap().put("purrequisitionList", this.purrequisitionDAO.getListByCondition("t where t.approvalStatus=1"));
+/* 241:    */     
+/* 242:    */ 
+/* 243:    */ 
+/* 244:266 */     mav.getModelMap().put("accountMap", accountMap);
+/* 245:267 */     mav.getModelMap().put("statusList", getStatusList(locale));
+/* 246:268 */     if (success != null) {
+/* 247:269 */       mav.getModelMap().put("success", success);
+/* 248:    */     }
+/* 249:271 */     if (error != null) {
+/* 250:272 */       mav.getModelMap().put("error", error);
+/* 251:    */     }
+/* 252:274 */     return mav;
+/* 253:    */   }
+
+
+
+
+
+}
+
+
