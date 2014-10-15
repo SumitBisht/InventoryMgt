@@ -21,6 +21,7 @@
                 <div class="col-md-3">
                     <div class="catagory-main-box top-radius">
                         <div id='cssmenu'>
+                        <c:if test="${ useFinanceMenus == null}">
                             <ul>
                                 <li class='has-sub active'><a href='invoice_entry.html'><span><spring:message code="label.invoice.operations" text="Label value is missing !!!"/></span></a>
                                 <li class=''><a href='#'><span><spring:message code="label.invoice.entry" text="Label value is missing !!!"/></span></a>
@@ -28,20 +29,22 @@
                                         <li><a href='invoice_entry.html'><span><spring:message code="label.invoice.heading" text="Label value is missing !!!"/></span></a></li>
                                         <li class="active"><a href='cash_collections.html'><span><spring:message code="label.invoice.box" text="Label value is missing !!!"/></span></a></li>
                                         <li class='last'><a href='bank_collections.html'><span><spring:message code="label.invoice.bank" text="Label value is missing !!!"/></span></a></li>
-                                        <li class='last'><a href='not_in_use.html'><span><spring:message code="label.invoice.heading" text="Label value is missing !!!"/></span></a></li>
                                     </ul>
                                 </li>
                                 
                             </ul>
-                            
-                        </div>
+                         </c:if>
+                         <c:if test="${ useFinanceMenus != null}">
+                         	<jsp:include page="finance_mgt_menu.jsp" />
+                         </c:if>
+                         </div>
                         <!-- END MUNU -->    
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="catagory-main-box top-radius">
                         <div class="cat-box-title cat-title-font top-radius">
-                        	${header}
+                        	${title_text}
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane active" id="demo">
