@@ -391,6 +391,34 @@
 /* 354:    */ 
 
 
+/* 332:    */   @RequestMapping({"/finaction.html"})
+/* 333:    */   
+/* 334:    */   public String Processedforfinance(@RequestParam("id") int id,@RequestParam("act") int act)
+/* 335:    */     throws Exception
+/* 336:    */   {
+/* 337:345 */     LOG.debug("delete_purrequisitiondt called.");
+    Purrequisition purrequissition  = (Purrequisition)this.purrequisitionDAO.getRecordByPrimaryKey(Integer.valueOf(id));
+/* 339:347 */     int updateResult = 0;
+/* 340:348 */     if (purrequissition != null)
+/* 341:    */     {
+/* 342:349 */       
+	purrequissition.setProcessed(act);
+	
+	purrequisitionDAO.update(purrequissition);
+	
+/* 343:350 */       if (updateResult > 0)
+/* 344:    */       {
+/* 345:351 */         LOG.debug("Purrequisition with id {0} deleted successfully", purrequissition.getId());
+/* 346:352 */         return "redirect:approvedForFinance.html";
+/* 347:    */       }
+/* 348:355 */       LOG.debug("Error occurred while deleting purrequisition with id {0}", purrequissition.getId());
+/* 346:352 */         return "redirect:approvedForFinance.html";
+/* 350:    */     }
+/* 351:359 */     LOG.debug("Purrequisition with id {0} is already deleted", Integer.valueOf(id));
+/* 346:352 */         return "redirect:approvedForFinance.html";
+/* 353:    */   }
+/* 354:    */ 
+
 
 
 
