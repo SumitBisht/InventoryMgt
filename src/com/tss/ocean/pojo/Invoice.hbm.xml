@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.tss.ocean.pojo.Invoice" table="invoice" catalog="invmgmt">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="string">
+            <column name="bill_date" />
+        </property>
+        <property name="buyerName" type="string">
+            <column name="buyername" length="100" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" />
+        </property>
+        <property name="boxMode" type="java.lang.Boolean">
+            <column name="boxMode" />
+        </property>
+        <property name="discount" type="java.math.BigDecimal">
+            <column name="discount" />
+        </property>
+        <property name="tax" type="java.math.BigDecimal">
+            <column name="tax" />
+        </property>
+        <property name="grossAmount" type="java.math.BigDecimal">
+            <column name="amount" />
+        </property>
+        <property name="item_id" type="java.lang.Integer">
+        	<column name="item_id" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+        	<column name="quantity" />
+        </property>
+    </class>
+</hibernate-mapping>
