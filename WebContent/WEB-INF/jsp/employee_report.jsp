@@ -22,7 +22,7 @@
                     <div class="catagory-main-box top-radius">
                         <!--<div class="cat-table-title"></div>-->
                         <!-- MUNU -->    
-                        <div id='cssmenu'>
+<%--                         <div id='cssmenu'>
                             <ul>
                                 <li class='has-sub active'><a href='employee.html'><span><spring:message code="menu.employeemanagement" text="Label value is missing !!!"/></span></a>
                                     <li class=''><a href='access_control.html'><span><spring:message code="menu.empmanagement.acl" text="Label value is missing !!!"/></span></a></li>
@@ -52,8 +52,19 @@
                                 
                             </ul>
                             
-                        </div>
-                        <!-- END MUNU -->    
+                        </div> --%>
+                        <!-- END MUNU -->  
+                        
+                         <!-- MUNU -->    
+                            <div id='cssmenu'>
+                                <ul>
+
+                                    <li class='has-sub active'><a href='#'><span>Reports</span></a>
+                                        <ul style='display: block;'>
+                                            <li class="active"><a href='report.htm'><span>Items</span></a></li>
+                                            <li><a href='hr_employee_report.html'><span>Employee</span></a></li>
+                                                  </ul>
+                            </div>  
                     </div>
                 </div>
                 <div class="col-md-9">
