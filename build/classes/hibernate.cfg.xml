@@ -23,6 +23,7 @@
     <mapping resource="com/tss/ocean/pojo/Prstatus.hbm.xml"/>
     <mapping resource="com/tss/ocean/pojo/Alarms.hbm.xml"/>
     <mapping resource="com/tss/ocean/pojo/Itemtype.hbm.xml"/>
+    <mapping resource="com/tss/ocean/pojo/Invoice.hbm.xml"/>
     <mapping resource="com/tss/ocean/pojo/Purorder.hbm.xml"/>
     <mapping resource="com/tss/ocean/pojo/EmployeeLeaves.hbm.xml"/>
     <mapping resource="com/tss/ocean/pojo/ApplyLeaves.hbm.xml"/>
