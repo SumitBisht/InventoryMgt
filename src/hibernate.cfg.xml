@@ -12,7 +12,7 @@
     <property name="hibernate.connection.characterEncoding">utf8</property>
     <property name="hibernate.connection.useUnicode">true</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password">root</property>
     <mapping resource="com/tss/ocean/pojo/ACL.hbm.xml"/>
     <mapping resource="com/tss/ocean/pojo/ACLEntity.hbm.xml"/>
     <mapping resource="com/tss/ocean/pojo/Accounts.hbm.xml"/>

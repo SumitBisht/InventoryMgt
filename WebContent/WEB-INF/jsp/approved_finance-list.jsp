@@ -103,13 +103,12 @@
                                                 <td>${purrequisition.price}</td>
                                                 <td>${purrequisition.createdat}</td>
                                                 <td>
-                                                    <c:if test="${purrequisition.approvalStatus==0}">
+                                                    <c:if test="${purrequisition.processed==0}">
                                                     
                                                     
                                                     
-                                                    <a href="action.html?id=${purrequisition.id}&act=1" class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-edit"></span>Approve</a>
+                                                    <a href="finaction.html?id=${purrequisition.id}&act=1" class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-edit"></span>Mark Processed</a>
                                                 
-                                                                                                    <a href="action.html?id=${purrequisition.id}&act=2" class="btn btn-default btn-sm row-delete" type="button"><span class="glyphicon glyphicon-trash"></span> Disapprove</a>
                                                 
                                                  </c:if>
                                                  
