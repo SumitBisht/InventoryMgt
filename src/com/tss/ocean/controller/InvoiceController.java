@@ -88,9 +88,9 @@ public class InvoiceController {
 		logger.info("returned with "+invoices.size()+" cash invoices");
 		ModelAndView mav = new ModelAndView("invoice_list");
 		mav.getModelMap().put("invoices", invoices);
-		mav.getModelMap().put("header", "Cash based invoice");
+		mav.getModelMap().put("title_text", "Cash based invoice");
 		return mav;
-	}	
+	}
 	/*
 	 * Provides the report of the bank collections of the different reports
 	 */
@@ -101,9 +101,37 @@ public class InvoiceController {
 		logger.info("returned with "+invoices.size()+" cash invoices");
 		ModelAndView mav = new ModelAndView("invoice_list");
 		mav.getModelMap().put("invoices", invoices);
-		mav.getModelMap().put("header", "Bank based invoice");
+		mav.getModelMap().put("title_text", "Bank based invoice");
 		return mav;
-	}	
+	}
+	/*
+	 * Provides the report of the cash/box collections within finance section
+	 */
+	@RequestMapping(value = { "/cash_vouchers.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView listCashCollectionsOnFinanceMenu(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale) throws Exception {
+		logger.info("Starting the save of data.");
+		List<Invoice> invoices = this.invoiceDAO.getCollectionByType(true);
+		logger.info("returned with "+invoices.size()+" cash invoices");
+		ModelAndView mav = new ModelAndView("invoice_list");
+		mav.getModelMap().put("useFinanceMenus", "true");
+		mav.getModelMap().put("invoices", invoices);
+		mav.getModelMap().put("title_text", "Cash based invoice");
+		return mav;
+	}
+	/*
+	 * Provides the report of the bank collections within finance section
+	 */
+	@RequestMapping(value = { "/bank_vouchers.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView listBankCollectionsOnFinanceMenu(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale) throws Exception {
+		logger.info("Starting the save of data.");
+		List<Invoice> invoices = this.invoiceDAO.getCollectionByType(false);
+		logger.info("returned with "+invoices.size()+" cash invoices");
+		ModelAndView mav = new ModelAndView("invoice_list");
+		mav.getModelMap().put("useFinanceMenus", "true");
+		mav.getModelMap().put("invoices", invoices);
+		mav.getModelMap().put("title_text", "Bank based invoice");
+		return mav;
+	}
 	/*
 	 * Makes the invoice editable
 	 */
@@ -123,7 +151,6 @@ public class InvoiceController {
 		modelAndView.getModelMap().put("items", itemList);
 		return modelAndView;
 	}
-	
 	
 	/*
 	 * Updates the invoice data and informs the user of the process
