@@ -16,7 +16,7 @@ public class Invoice implements Serializable {
 	private Number grossAmount;
 	private Integer item_id;
 	private Integer quantity;
-	
+	private String mealType;
 	public Invoice(){
 	}
 
@@ -99,6 +99,14 @@ public class Invoice implements Serializable {
 		this.quantity = quantity;
 	}
 	
+	public String getMealType() {
+		return mealType;
+	}
+
+	public void setMealType(String mealType) {
+		this.mealType = mealType;
+	}
+
 	@Override
 	public String toString(){
 		String string = "";
@@ -122,6 +130,8 @@ public class Invoice implements Serializable {
 			string += this.item_id;
 		if(this.quantity!=null)
 			string += this.quantity;
+		if(this.mealType!=null)
+			string += this.mealType;
 		return string;
 	}
 

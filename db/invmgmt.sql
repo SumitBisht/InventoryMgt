@@ -778,6 +778,7 @@ CREATE TABLE IF NOT EXISTS `invoice` (
   `amount` decimal(10,2) NOT NULL,
   `item_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
+  `meal_type` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='invoice' AUTO_INCREMENT=6 ;
 

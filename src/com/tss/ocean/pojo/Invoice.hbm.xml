@@ -35,5 +35,8 @@
         <property name="quantity" type="java.lang.Integer">
         	<column name="quantity" />
         </property>
+        <property name="mealType" type="string">
+            <column name="meal_type" />
+        </property>
     </class>
 </hibernate-mapping>
