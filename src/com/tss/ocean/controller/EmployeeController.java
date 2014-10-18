@@ -12,24 +12,33 @@
 /*  12:    */ import com.tss.ocean.pojo.Employees;
 /*  13:    */ import com.tss.ocean.pojo.PurordApprovers;
 /*  14:    */ import com.tss.ocean.util.Utilities;
+
 /*  15:    */ import java.sql.Blob;
 /*  16:    */ import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 /*  17:    */ import java.util.ArrayList;
+import java.util.Date;
 /*  18:    */ import java.util.HashMap;
 /*  19:    */ import java.util.Iterator;
 /*  20:    */ import java.util.List;
 /*  21:    */ import java.util.Locale;
 /*  22:    */ import java.util.Map;
+
 /*  23:    */ import javax.validation.Valid;
+
 /*  24:    */ import org.hibernate.Hibernate;
 /*  25:    */ import org.slf4j.Logger;
 /*  26:    */ import org.slf4j.LoggerFactory;
 /*  27:    */ import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 /*  28:    */ import org.springframework.context.MessageSource;
 /*  29:    */ import org.springframework.stereotype.Controller;
 /*  30:    */ import org.springframework.ui.Model;
 /*  31:    */ import org.springframework.ui.ModelMap;
 /*  32:    */ import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 /*  33:    */ import org.springframework.web.bind.annotation.ModelAttribute;
 /*  34:    */ import org.springframework.web.bind.annotation.RequestMapping;
 /*  35:    */ import org.springframework.web.bind.annotation.RequestParam;
@@ -391,9 +400,18 @@
 /* 391:    */   public ModelAndView addEmployeePost(@ModelAttribute("employee") @Valid Employees employees, BindingResult result, ModelMap model, Locale locale)
 /* 392:    */     throws Exception
 /* 393:    */   {
-/* 394:413 */     logger.info("add_employee_category-post called.");
+/* 394:413 */     logger.info("add_employee Post called.");
 /* 395:414 */     ModelAndView mav = new ModelAndView("redirect:add_employee.html");
-/* 396:415 */     if (!result.hasErrors())
+/* 396:415 */    
+System.out.println("ERRORS OCCURED"+result.getAllErrors().size());
+
+
+for (ObjectError e:result.getAllErrors())
+{
+	System.out.println(e.toString());
+}
+
+if (!result.hasErrors())
 /* 397:    */     {
 /* 398:416 */       if (employees.getFileData() != null)
 /* 399:    */       {
@@ -403,7 +421,10 @@
 /* 403:420 */         employees.setPhotoFileSize(Integer.valueOf(new Long(employees.getFileData().getSize()).intValue()));
 /* 404:    */       }
 /* 405:422 */       int insertResult = ((Integer)this.employeesDAO.insert(employees)).intValue();
-/* 406:423 */       List<Employees> employeeList = this.employeesDAO.getList();
+/* 406:423 */      
+System.out.println("HAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSNNNNNNNNNNNOOOOOOOOOOOEEEEEEEEERRRRRRRRRRRR"+employees.toString());
+
+List<Employees> employeeList = this.employeesDAO.getList();
 /* 407:424 */       List<EmployeeDepartment> departmentList = this.employeeDepartmentDAO.getList();
 /* 408:425 */       List<EmployeeCategory> categoryList = this.employeeCategoryDAO.getList();
 /* 409:426 */       List<Bank> bankList = this.bankDAO.getList();
@@ -420,6 +441,10 @@
 /* 420:436 */       logger.info("Error while inserting " + employees);
 /* 421:437 */       return mav.addObject("error", Utilities.getSpringMessage(this.messageSource, "employee.add.error", locale));
 /* 422:    */     }
+
+
+System.out.println("_________________________"+employees.toString());
+
 /* 423:440 */     return new ModelAndView("add_employee", model);
 /* 424:    */   }
 /* 425:    */   
@@ -478,7 +503,20 @@
 /* 478:    */   {
 /* 479:497 */     logger.info("edit_employee-post called.");
 /* 480:498 */     ModelAndView mav = new ModelAndView("redirect:employee.html");
-/* 481:499 */     if (!result.hasErrors())
+/* 481:499 */    
+
+System.out.println("ERRORS OCCURED"+result.getAllErrors().size());
+
+
+for (ObjectError e:result.getAllErrors())
+{
+	System.out.println(e.toString());
+}
+
+System.out.println("____________RRRRRRRRR_____________"+employees.getPassportExpiryDate());
+
+
+if (!result.hasErrors())
 /* 482:    */     {
 /* 483:500 */       if (employees.getFileData() != null)
 /* 484:    */       {
@@ -512,8 +550,11 @@
 /* 512:527 */         return mav.addObject("success", Utilities.getSpringMessage(this.messageSource, "employee.update.success", locale));
 /* 513:    */       }
 /* 514:530 */       logger.warn("Error occurred updating employee categry:{0}", employees);
-/* 515:531 */       return new ModelAndView("edit_employee", model).addObject("error", Utilities.getSpringMessage(this.messageSource, "employee.update.error", locale));
-/* 516:    */     }
+/* 515:531 */     
+
+
+/*return new ModelAndView("edit_employee", model).addObject("error", Utilities.getSpringMessage(this.messageSource, "employee.update.error", locale));
+*//* 516:    */     }
 /* 517:535 */     logger.warn("Employee  values are not valid:", employees);
 /* 518:536 */     List<Employees> employeeList = this.employeesDAO.getList();
 /* 519:537 */     List<EmployeeDepartment> departmentList = this.employeeDepartmentDAO.getList();
@@ -640,10 +681,71 @@
 /* 640:    */ 
 /* 641:660 */     return "add-purchase_approver";
 /* 642:    */   }
-/* 643:    */ }
+
+
+
+/* 426:    */   @RequestMapping(value={"/view_employee.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
+/* 427:    */   public ModelAndView printemp(@RequestParam("id") int id, Locale locale, @RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error)
+/* 428:    */     throws Exception
+/* 429:    */   {
+/* 430:450 */     logger.info("edit_employee called.");
+/* 431:    */     
+/* 432:452 */     Employees employees = (Employees)this.employeesDAO.getRecordByPrimaryKey(Integer.valueOf(id));
+/* 433:    */     ModelAndView mav;
+/* 434:453 */     if (employees != null)
+/* 435:    */     {
+/* 436:454 */        mav = new ModelAndView("print_employee");
+/* 437:455 */       mav.getModelMap().put("employee", employees);
+/* 438:456 */       List<Employees> employeeList = this.employeesDAO.getList();
+/* 439:457 */       List<EmployeeDepartment> departmentList = this.employeeDepartmentDAO.getList();
+/* 440:458 */       List<EmployeeCategory> categoryList = this.employeeCategoryDAO.getList();
+/* 441:459 */       List<Bank> bankList = this.bankDAO.getList();
+/* 442:460 */       mav.getModelMap().put("employeeDepartmentList", departmentList);
+/* 443:461 */       mav.getModelMap().put("employeeCategoryList", categoryList);
+/* 444:462 */       mav.getModelMap().put("employeeList", employeeList);
+/* 444:462 */       mav.getModelMap().put("employee", employees);
+
+/* 445:463 */       mav.getModelMap().put("bankList", bankList);
+/* 446:    */     }
+/* 447:    */     else
+/* 448:    */     {
+/* 449:466 */       mav = new ModelAndView("redirect:employee.html");
+/* 450:467 */       List<Employees> employeeList = this.employeesDAO.getList();
+/* 451:468 */       Map<Integer, String> departmentMap = new HashMap();
+/* 452:469 */       Map<Integer, String> categoryMap = new HashMap();
+/* 453:470 */       mav.getModelMap().put("employeeList", employeeList);
+/* 454:471 */       List<EmployeeDepartment> departmentList = this.employeeDepartmentDAO.getList();
+/* 455:472 */       for (EmployeeDepartment employeeDepartment : departmentList) {
+/* 456:473 */         departmentMap.put(employeeDepartment.getId(), employeeDepartment.getDepartment());
+/* 457:    */       }
+/* 458:475 */       mav.getModelMap().put("departmentmap", departmentMap);
+/* 459:    */       
+/* 460:477 */       List<EmployeeCategory> categoryList = this.employeeCategoryDAO.getList();
+/* 461:478 */       for (EmployeeCategory employeeCategory : categoryList) {
+/* 462:479 */         categoryMap.put(employeeCategory.getId(), employeeCategory.getCategory());
+/* 463:    */       }
+/* 464:481 */       mav.getModelMap().put("categorymap", categoryMap);
+/* 465:    */     }
+/* 466:483 */     if (success != null) {
+/* 467:484 */       mav.getModelMap().put("success", success);
+/* 468:    */     }
+/* 469:486 */     if (error != null) {
+/* 470:487 */       mav.getModelMap().put("error", error);
+/* 471:    */     }
+/* 472:489 */     return mav;
+/* 473:    */   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+ }
 
-
-/* Location:           C:\Users\Raz\Desktop\InvMgmt\WEB-INF\classes\
- * Qualified Name:     com.tss.ocean.controller.EmployeeController
- * JD-Core Version:    0.7.1
- */

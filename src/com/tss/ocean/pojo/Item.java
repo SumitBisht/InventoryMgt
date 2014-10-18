@@ -18,11 +18,13 @@
 /*  18:    */   private Itemtype typeid;
 /*  19:    */   @DecimalMin(value="0", message="The decimal value can not be less than 0 digit ")
 /*  20:    */   private BigDecimal price;
+
+
 /*  21:    */   private int taxid;
 /*  22:    */   @Min(value=0L, message="The minimum stock should be 0")
 /*  23:    */   private int currstock;
 /*  24:    */   private Itemunit unitid;
-/*  25:    */   
+/*  25:    */   private String barcode;
 /*  26:    */   public int hashCode()
 /*  27:    */   {
 /*  28: 33 */     int hash = 3;
@@ -32,6 +34,7 @@
 /*  32: 37 */     hash = 89 * hash + this.categoryid;
 /*  33: 38 */     hash = 89 * hash + Objects.hashCode(this.typeid);
 /*  34: 39 */     hash = 89 * hash + Objects.hashCode(this.price);
+				  hash = 89 * hash + Objects.hashCode(this.barcode);
 /*  35: 40 */     hash = 89 * hash + this.taxid;
 /*  36: 41 */     hash = 89 * hash + this.currstock;
 /*  37: 42 */     hash = 89 * hash + Objects.hashCode(this.unitid);
@@ -65,6 +68,9 @@
 /*  65: 70 */     if (!Objects.equals(this.price, other.price)) {
 /*  66: 71 */       return false;
 /*  67:    */     }
+					if (!Objects.equals(this.barcode, other.barcode)) {
+					return false;
+					}
 /*  68: 73 */     if (this.taxid != other.taxid) {
 /*  69: 74 */       return false;
 /*  70:    */     }
@@ -79,13 +85,14 @@
 /*  79:    */   
 /*  80:    */   public Item() {}
 /*  81:    */   
-/*  82:    */   public Item(String name, String alias, int categoryid, Itemtype typeid, BigDecimal price, int taxid, Itemunit unitid, int currstock)
+/*  82:    */  public Item(String name, String alias, int categoryid, Itemtype typeid, BigDecimal price,String barcode, int taxid, Itemunit unitid, int currstock)
 /*  83:    */   {
 /*  84: 89 */     this.name = name;
 /*  85: 90 */     this.alias = alias;
 /*  86: 91 */     this.categoryid = categoryid;
 /*  87: 92 */     this.typeid = typeid;
 /*  88: 93 */     this.price = price;
+				  this.barcode = barcode;
 /*  89: 94 */     this.taxid = taxid;
 /*  90: 95 */     this.unitid = unitid;
 /*  91: 96 */     this.currstock = currstock;
@@ -150,6 +157,12 @@
 /* 150:    */   {
 /* 151:144 */     this.price = price;
 /* 152:    */   }
+				public String getBarcode() {
+					return barcode;
+					}
+				public void setBarcode(String barcode) {
+					this.barcode = barcode;
+				} 
 /* 153:    */   
 /* 154:    */   public int getTaxid()
 /* 155:    */   {
@@ -182,10 +195,11 @@
 /* 182:    */   }
 /* 183:    */   
 /* 184:    */   public String toString()
-/* 185:    */   {
-/* 186:173 */     return "Item{id=" + this.id + ", name=" + this.name + ", alias=" + this.alias + ", categoryid=" + this.categoryid + ", typeid=" + this.typeid + ", price=" + this.price + ", taxid=" + this.taxid + ", currstock=" + this.currstock + ", unitid=" + this.unitid + '}';
-/* 187:    */   }
-/* 188:    */ }
+   				{
+				return "Item{id=" + this.id + ", name=" + this.name + ", alias=" + this.alias + ", categoryid=" + this.categoryid + ", typeid=" + this.typeid + ", price=" + this.price + ", barcode="+ this.barcode +", taxid=" + this.taxid + ", currstock=" + this.currstock + ", unitid=" + this.unitid + '}';
+   				}
+/* 188:    */
+}
 
 
 /* Location:           C:\Users\Raz\Desktop\InvMgmt\WEB-INF\classes\

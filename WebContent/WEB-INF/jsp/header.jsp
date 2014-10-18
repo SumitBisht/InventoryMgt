@@ -36,10 +36,12 @@
     <link rel="stylesheet" href="css/menustyles.css">
 
     <script>
-        if (!window.jQuery) { document.write('<script src="js/jquery-1.9.1.min.js"><\/script>'); }
+        if (!window.jQuery) { document.write('<script src="js/jquery-1.9.1.min.js"><\/script>');
+        document.write('<script src="js/jquery-barcode.js" type="text/javascript"> <\/script>');
+        }
     </script>
-
-<!--    <script src="js/footable.js" type="text/javascript"></script>
+<!--  <script src="js/jquery-barcode.js" type="text/javascript">
+ --><!--    <script src="js/footable.js" type="text/javascript"></script>
     <script src="js/footable.sort.js" type="text/javascript"></script>
     <script src="js/footable.filter.js" type="text/javascript"></script>
     <script src="js/footable.paginate.js" type="text/javascript"></script>-->

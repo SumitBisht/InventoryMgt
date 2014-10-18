@@ -33,7 +33,7 @@
 /*  33:    */   IItemDAO itemDAO;
 /*  34:    */   
 /*  35:    */   @RequestMapping(value={"/AddInventory.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/*  36:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemcategory','add')")
+/*  36:    */   @PreAuthorize("hasAnyRole('ROLE_USER')")
 /*  37:    */   public ModelAndView inventorymgmt(@ModelAttribute("itemTypeForm") @Valid Itemtype itemTypeForm, BindingResult result, Map<String, Object> model)
 /*  38:    */     throws Exception
 /*  39:    */   {
@@ -51,7 +51,7 @@
 /*  51:    */   }
 /*  52:    */   
 /*  53:    */   @RequestMapping(value={"/UpdateItemCategory.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/*  54:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemcategory','update')")
+/*  54:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  55:    */   public ModelAndView updateItemCategory(@ModelAttribute("itemTypeForm") @Valid Itemtype itemTypeForm, BindingResult result, Map<String, Object> model)
 /*  56:    */     throws Exception
 /*  57:    */   {
@@ -76,7 +76,7 @@
 /*  76:    */   }
 /*  77:    */   
 /*  78:    */   @RequestMapping(value={"/AddItemUnits.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/*  79:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemunit','add')")
+/*  79:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  80:    */   public ModelAndView addItemUnits(@ModelAttribute("itemUnit") @Valid Itemunit itemUnit, BindingResult result, Map<String, Object> model)
 /*  81:    */     throws Exception
 /*  82:    */   {
@@ -106,7 +106,7 @@
 /* 106:    */   }
 /* 107:    */   
 /* 108:    */   @RequestMapping(value={"/AddItem.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 109:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('item','add')")
+/* 109:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 110:    */   public ModelAndView addItem(@ModelAttribute("itemForm") @Valid Item item, BindingResult result, Map<String, Object> model)
 /* 111:    */     throws Exception
 /* 112:    */   {
@@ -149,7 +149,7 @@
 /* 149:    */   }
 /* 150:    */   
 /* 151:    */   @RequestMapping(value={"/EditItem.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 152:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('item','update')")
+/* 152:    */   @PreAuthorize("hasAnyRole('ROLE_USER')")
 /* 153:    */   public ModelAndView editItem(@ModelAttribute("itemForm") @Valid Item item, BindingResult result, Map<String, Object> model)
 /* 154:    */     throws Exception
 /* 155:    */   {
@@ -175,7 +175,7 @@
 /* 175:    */   }
 /* 176:    */   
 /* 177:    */   @RequestMapping(value={"/DeleteItemCategory.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 178:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemcategory','delete')")
+/* 178:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 179:    */   public ModelAndView deleteItemCategory(@RequestParam("deleteId") int deleteId, Map<String, Object> model)
 /* 180:    */     throws Exception
 /* 181:    */   {
@@ -195,7 +195,7 @@
 /* 195:    */   }
 /* 196:    */   
 /* 197:    */   @RequestMapping(value={"/DeleteItem.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 198:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('item','delete')")
+/* 198:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 199:    */   public ModelAndView deleteItem(@RequestParam("deleteId") int deleteId, Map<String, Object> model)
 /* 200:    */     throws Exception
 /* 201:    */   {
@@ -215,7 +215,7 @@
 /* 215:    */   }
 /* 216:    */   
 /* 217:    */   @RequestMapping(value={"/DeleteItemUnits.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 218:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemunit','delete')")
+/* 218:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 219:    */   public ModelAndView deleteItemUnits(@RequestParam("deleteId") int deleteId, Map<String, Object> model)
 /* 220:    */     throws Exception
 /* 221:    */   {
@@ -235,7 +235,7 @@
 /* 235:    */   }
 /* 236:    */   
 /* 237:    */   @RequestMapping({"/UpdateItemUnits.html"})
-/* 238:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemunit','update')")
+/* 238:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 239:    */   public String updateItemUnits(@RequestParam("updateItemId") int updateItemId, Map<String, Object> model)
 /* 240:    */     throws Exception
 /* 241:    */   {
@@ -245,7 +245,7 @@
 /* 245:    */   }
 /* 246:    */   
 /* 247:    */   @RequestMapping({"/UpdateItemCategory.html"})
-/* 248:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemcategory','update')")
+/* 248:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 249:    */   public String updateItemCategory(@RequestParam("updateItemId") int updateItemId, Map<String, Object> model)
 /* 250:    */     throws Exception
 /* 251:    */   {
@@ -255,7 +255,7 @@
 /* 255:    */   }
 /* 256:    */   
 /* 257:    */   @RequestMapping(value={"/UpdateItem.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/* 258:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('item','update')")
+/* 258:    */   @PreAuthorize("hasAnyRole('ROLE_USER')")
 /* 259:    */   public String edit_item(@RequestParam("updateItemId") int updateItemId, Map<String, Object> model, HttpServletRequest request)
 /* 260:    */     throws Exception
 /* 261:    */   {

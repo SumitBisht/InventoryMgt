@@ -172,7 +172,7 @@
         <!-- Jquery UI Javascript -->
         <script src="js/jquery-ui.js"></script>
         <script type="text/javascript">
-                                        $('input[type=date]').datepicker({dateFormat: 'dd/mm/yy'});
+                                     //   $('input[type=date]').datepicker({dateFormat: 'dd/mm/yy'});
         </script>
     </body>
 </html>

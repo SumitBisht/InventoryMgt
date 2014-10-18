@@ -23,6 +23,15 @@
         <property name="approvedbydate" type="java.util.Date">
             <column name="approvedbydate" />
         </property>
+        
+        
+      
+         <property name="processed" type="java.lang.Integer">
+            <column name="processed" />
+        </property>
+        <property name="approvalStatus" type="java.lang.Integer">
+            <column name="approvalStatus" />
+        </property>
         <property name="nextapprovedby" type="java.lang.Integer">
             <column name="nextapprovedby" />
         </property>

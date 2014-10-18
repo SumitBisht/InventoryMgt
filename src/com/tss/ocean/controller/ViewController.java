@@ -39,18 +39,26 @@
 /*  39:    */   }
 /*  40:    */   
 /*  41:    */   @RequestMapping(value={"/item.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  42:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('item','view')")
+/*  42:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  43:    */   public String itemmgmt(Model model, HttpServletRequest request)
 /*  44:    */     throws Exception
 /*  45:    */   {
 /*  46: 54 */     logger.log(Level.OFF, "item called.");
 /*  47: 55 */     logger.log(Level.OFF, "item called size ### " + this.itemDAO.getList().size());
+
+
+for(Item i:this.itemDAO.getList())
+{
+	System.out.println("______________________________"+i.getName());
+	
+	
+}
 /*  48: 56 */     model.addAttribute("itemList", this.itemDAO.getList());
 /*  49: 57 */     return "item";
 /*  50:    */   }
 /*  51:    */   
 /*  52:    */   @RequestMapping(value={"/item_category.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  53:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemcategory','view')")
+/*  53:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  54:    */   public String item_category(Model model, HttpServletRequest request)
 /*  55:    */     throws Exception
 /*  56:    */   {
@@ -62,7 +70,7 @@
 /*  62:    */   }
 /*  63:    */   
 /*  64:    */   @RequestMapping(value={"/item_unit.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  65:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemunit','view')")
+/*  65:    */   @PreAuthorize("hasAnyRole('ROLE_USER')  ")
 /*  66:    */   public String item_unit(Model model, HttpServletRequest request)
 /*  67:    */     throws Exception
 /*  68:    */   {
@@ -72,7 +80,7 @@
 /*  72:    */   }
 /*  73:    */   
 /*  74:    */   @RequestMapping(value={"/add-item.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  75:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('item','add')")
+/*  75:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  76:    */   public String add_item(Map<String, Object> model, HttpServletRequest request)
 /*  77:    */     throws Exception
 /*  78:    */   {
@@ -84,7 +92,7 @@
 /*  84:    */   }
 /*  85:    */   
 /*  86:    */   @RequestMapping(value={"/add-item_category.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  87:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemcategory','add')")
+/*  87:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  88:    */   public String add_item_category(Map<String, Object> model, HttpServletRequest request)
 /*  89:    */     throws Exception
 /*  90:    */   {
@@ -95,7 +103,7 @@
 /*  95:    */   }
 /*  96:    */   
 /*  97:    */   @RequestMapping(value={"/add-item_unit.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  98:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('itemunit','add')")
+/*  98:    */   @PreAuthorize("hasAnyRole('ROLE_USER')")
 /*  99:    */   public String add_item_unit(Map<String, Object> model, HttpServletRequest request)
 /* 100:    */     throws Exception
 /* 101:    */   {
@@ -142,7 +150,7 @@
 /* 142:    */     throws Exception
 /* 143:    */   {
 /* 144:164 */     logger.log(Level.OFF, "finance_management called.");
-/* 145:165 */     return "finance_management";
+/* 145:165 */     return "redirect:approvedForFinance.html";
 /* 146:    */   }
 /* 147:    */ }
 

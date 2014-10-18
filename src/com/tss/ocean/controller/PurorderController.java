@@ -43,7 +43,7 @@
 /*  43:    */   private MessageSource messageSource;
 /*  44:    */   
 /*  45:    */   @RequestMapping(value={"/add-purchase_order.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  46:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaseorder','add')")
+/*  46:    */   @PreAuthorize("hasAnyRole('ROLE_USER')")
 /*  47:    */   public ModelAndView add_purorder_get(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale)
 /*  48:    */     throws Exception
 /*  49:    */   {
@@ -63,7 +63,7 @@
 /*  63:    */   }
 /*  64:    */   
 /*  65:    */   @RequestMapping(value={"/add-purchase_order.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/*  66:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaseorder','add')")
+/*  66:    */   @PreAuthorize("hasAnyRole('ROLE_USER')")
 /*  67:    */   public ModelAndView add_purorder_post(@ModelAttribute("purorder") @Valid Purorder purorder, BindingResult result, ModelMap model, Locale locale)
 /*  68:    */     throws Exception
 /*  69:    */   {
@@ -89,7 +89,7 @@
 /*  89:    */   }
 /*  90:    */   
 /*  91:    */   @RequestMapping(value={"/edit-purchase_order.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/*  92:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaseorder','update')")
+/*  92:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /*  93:    */   public ModelAndView edit_purorder_get(@RequestParam("id") int id, Locale locale, @RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error)
 /*  94:    */     throws Exception
 /*  95:    */   {
@@ -118,7 +118,7 @@
 /* 118:    */   }
 /* 119:    */   
 /* 120:    */   @RequestMapping(value={"/edit-purchase_order.html"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-/* 121:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaseorder','update')")
+/* 121:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 122:    */   public ModelAndView edit_purorder_post(@ModelAttribute("purorder") @Valid Purorder purorder, BindingResult result, ModelMap model, Locale locale)
 /* 123:    */     throws Exception
 /* 124:    */   {
@@ -143,7 +143,7 @@
 /* 143:    */   }
 /* 144:    */   
 /* 145:    */   @RequestMapping(value={"/purchase_order.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-/* 146:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaseorder','view')")
+/* 146:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 147:    */   public ModelAndView purorder(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale)
 /* 148:    */     throws Exception
 /* 149:    */   {
@@ -173,7 +173,7 @@
 /* 173:    */   
 /* 174:    */   @RequestMapping({"/delete-purchase_order.html"})
 /* 175:    */   @ResponseBody
-/* 176:    */   @PreAuthorize("hasAnyRole('ROLE_USER') AND hasPermission('purchaseorder','delete')")
+/* 176:    */   @PreAuthorize("hasAnyRole('ROLE_USER') ")
 /* 177:    */   public boolean delete_purorder(@RequestParam("id") int id)
 /* 178:    */     throws Exception
 /* 179:    */   {

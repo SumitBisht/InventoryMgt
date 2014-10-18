@@ -272,6 +272,10 @@
 /* 272:289 */       tx = session.beginTransaction();
 /* 273:290 */       serialid = (KeyType) session.save(object);
 /* 274:291 */       tx.commit();
+
+
+System.out.println("OBJECT IS SAVED SUCCESSFULLY>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
 /* 275:    */     }
 /* 276:    */     catch (RuntimeException e)
 /* 277:    */     {

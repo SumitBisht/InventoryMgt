@@ -25,6 +25,14 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	<error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/jsp/pagenotfound.jsp</location>
+</error-page> 
+<error-page>
+    <error-code>500</error-code>
+    <location>/pagenotfound.jsp</location>
+</error-page> 
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -33,4 +41,20 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	  <filter>
+        <filter-name>CharacterEncoding</filter-name>
+        <filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+	
 </web-app>
