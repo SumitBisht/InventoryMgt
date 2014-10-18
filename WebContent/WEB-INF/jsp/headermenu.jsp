@@ -8,7 +8,7 @@
         <div class="navbar-header">
             <div class="container">
                 <a href="index.htm">
-                    <img  src="img/logo.jpg" width="150" height="150" class="logo img-responsive visible-sm visible-ms visible-lg">
+                    <img  src="img/logo.jpg"  class="logo " style="width: 100px; height: 100px; margin-top: -2px">
                 </a>
                 <a href="index.htm">
                     <img src="img/mobile-logo.jpg" class="logo img-responsive visible-xs">

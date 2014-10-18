@@ -683,17 +683,69 @@ if (!result.hasErrors())
 /* 642:    */   }
 
 
-/*@InitBinder
-public void initBinder(WebDataBinder binder) {
-    binder.registerCustomEditor(Date.class, new CustomDateEditor(
-            new SimpleDateFormat("yyyy-MM-dd"), false));
-}*/
+
+/* 426:    */   @RequestMapping(value={"/view_employee.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
+/* 427:    */   public ModelAndView printemp(@RequestParam("id") int id, Locale locale, @RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error)
+/* 428:    */     throws Exception
+/* 429:    */   {
+/* 430:450 */     logger.info("edit_employee called.");
+/* 431:    */     
+/* 432:452 */     Employees employees = (Employees)this.employeesDAO.getRecordByPrimaryKey(Integer.valueOf(id));
+/* 433:    */     ModelAndView mav;
+/* 434:453 */     if (employees != null)
+/* 435:    */     {
+/* 436:454 */        mav = new ModelAndView("print_employee");
+/* 437:455 */       mav.getModelMap().put("employee", employees);
+/* 438:456 */       List<Employees> employeeList = this.employeesDAO.getList();
+/* 439:457 */       List<EmployeeDepartment> departmentList = this.employeeDepartmentDAO.getList();
+/* 440:458 */       List<EmployeeCategory> categoryList = this.employeeCategoryDAO.getList();
+/* 441:459 */       List<Bank> bankList = this.bankDAO.getList();
+/* 442:460 */       mav.getModelMap().put("employeeDepartmentList", departmentList);
+/* 443:461 */       mav.getModelMap().put("employeeCategoryList", categoryList);
+/* 444:462 */       mav.getModelMap().put("employeeList", employeeList);
+/* 444:462 */       mav.getModelMap().put("employee", employees);
+
+/* 445:463 */       mav.getModelMap().put("bankList", bankList);
+/* 446:    */     }
+/* 447:    */     else
+/* 448:    */     {
+/* 449:466 */       mav = new ModelAndView("redirect:employee.html");
+/* 450:467 */       List<Employees> employeeList = this.employeesDAO.getList();
+/* 451:468 */       Map<Integer, String> departmentMap = new HashMap();
+/* 452:469 */       Map<Integer, String> categoryMap = new HashMap();
+/* 453:470 */       mav.getModelMap().put("employeeList", employeeList);
+/* 454:471 */       List<EmployeeDepartment> departmentList = this.employeeDepartmentDAO.getList();
+/* 455:472 */       for (EmployeeDepartment employeeDepartment : departmentList) {
+/* 456:473 */         departmentMap.put(employeeDepartment.getId(), employeeDepartment.getDepartment());
+/* 457:    */       }
+/* 458:475 */       mav.getModelMap().put("departmentmap", departmentMap);
+/* 459:    */       
+/* 460:477 */       List<EmployeeCategory> categoryList = this.employeeCategoryDAO.getList();
+/* 461:478 */       for (EmployeeCategory employeeCategory : categoryList) {
+/* 462:479 */         categoryMap.put(employeeCategory.getId(), employeeCategory.getCategory());
+/* 463:    */       }
+/* 464:481 */       mav.getModelMap().put("categorymap", categoryMap);
+/* 465:    */     }
+/* 466:483 */     if (success != null) {
+/* 467:484 */       mav.getModelMap().put("success", success);
+/* 468:    */     }
+/* 469:486 */     if (error != null) {
+/* 470:487 */       mav.getModelMap().put("error", error);
+/* 471:    */     }
+/* 472:489 */     return mav;
+/* 473:    */   }
 
 
-/* 643:    */ }
+
+
+
+
+
+
+
+
+
+
+
+ }
 
-
-/* Location:           C:\Users\Raz\Desktop\InvMgmt\WEB-INF\classes\
- * Qualified Name:     com.tss.ocean.controller.EmployeeController
- * JD-Core Version:    0.7.1
- */

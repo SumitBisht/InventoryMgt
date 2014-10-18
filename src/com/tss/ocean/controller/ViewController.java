@@ -45,6 +45,14 @@
 /*  45:    */   {
 /*  46: 54 */     logger.log(Level.OFF, "item called.");
 /*  47: 55 */     logger.log(Level.OFF, "item called size ### " + this.itemDAO.getList().size());
+
+
+for(Item i:this.itemDAO.getList())
+{
+	System.out.println("______________________________"+i.getName());
+	
+	
+}
 /*  48: 56 */     model.addAttribute("itemList", this.itemDAO.getList());
 /*  49: 57 */     return "item";
 /*  50:    */   }

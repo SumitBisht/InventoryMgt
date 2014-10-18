@@ -124,7 +124,7 @@ public class InvoiceController {
 	@RequestMapping(value = { "/bank_vouchers.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
 	public ModelAndView listBankCollectionsOnFinanceMenu(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale) throws Exception {
 		logger.info("Starting the save of data.");
-		List<Invoice> invoices = this.invoiceDAO.getCollectionByType(true);
+		List<Invoice> invoices = this.invoiceDAO.getCollectionByType(false);
 		logger.info("returned with "+invoices.size()+" cash invoices");
 		ModelAndView mav = new ModelAndView("invoice_list");
 		mav.getModelMap().put("useFinanceMenus", "true");

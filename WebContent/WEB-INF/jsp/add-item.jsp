@@ -73,7 +73,7 @@
 
                             <div class="row tb-margin">
                                 <div class="col-sm-2"></div>
-                            <form:form action="AddItem.html" method="POST" commandName="itemForm">
+                            <form:form action="AddItem.html" method="post" commandName="itemForm" acceptcharset="UTF-8">
                                 <form:hidden path="id" />
                                 <form:errors path="*" cssClass="errorblock" element="div" />
 
