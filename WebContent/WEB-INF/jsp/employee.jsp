@@ -89,7 +89,7 @@
                                                 <spring:message code="label.employee.number" text="Label value is missing !!!"/>
                                             </th>
                                             <th data-hide="phone">
-                                                <spring:message code="label.employee.firstname" text="Label value is missing !!!"/> 
+                                               <spring:message code="label.employee.firstname" text="Label value is missing !!!"/>
                                             </th>
                                             <th data-hide="phone">
                                                 <spring:message code="label.employee.birthdate" text="Label value is missing !!!"/> 
@@ -109,7 +109,11 @@
                                         <c:forEach var="employee" items="${employeeList}">
                                             <tr>
                                                 <td>${employee.employeeNumber}</td>
-                                                <td>${employee.firstName}</td>
+                                                <td>
+                                                <a href="view_employee.html?id=${employee.id}" > 
+                                                ${employee.firstName}
+                                                </a>
+                                                </td>
                                                 <td>${employee.dateOfBirth}</td>
                                                 <td>${departmentmap[employee.employeeDepartmentId]}</td>
                                                 <td>${categorymap[employee.employeeCategoryId]}</td>

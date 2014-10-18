@@ -7,14 +7,14 @@
      
      </ul>
     </li>
-    <li class=''><a href='bank.html'><span>Credit / Debit</span></a>
+    <li class=''><a href='debitcredit.html'><span>Credit / Debit</span></a>
     
     </li>
     
         <li class=''><a href='incomming.html'><span>Incoming</span></a></li>
     <li class=''><a href='outgoing.html'><span>Outgoing</span></a></li>
-    <li class=''><a href='bank.html'><span>Profit/Loss</span></a></li>
-    <li class=''><a href='bank.html'><span>Revenue</span></a></li>
+    <li class=''><a href='profitandloss.html'><span>Profit/Loss</span></a></li>
+    <li class=''><a href='revenue.html'><span>Revenue</span></a></li>
     <li class=''><a href='bank.html'><span>Borrow</span></a></li>
     <li class=''><a href='bank.html'><span>Expenses</span></a></li>
     <li class=''><a href='bank.html'><span>Assets</span></a></li>

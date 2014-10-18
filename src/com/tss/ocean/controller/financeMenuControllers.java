@@ -99,8 +99,96 @@ public class financeMenuControllers {
 		return mav;
 	}
 	
+	@RequestMapping(value = { "/revenue.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView revenue(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale) throws Exception {
+		logger.info("Starting the save of data.");
+		List<Invoice> invoices = this.invoiceDAO.getList();
+		logger.info("returned with "+invoices.size()+" cash invoices");
+		float total = 0;
+		for(Invoice i:invoices)
+		{
+			total=total+(i.getGrossAmount().floatValue());
+		}
+		
+		ModelAndView mav = new ModelAndView("incomming_outgoing_list");
+		mav.getModelMap().put("useFinanceMenus", "true");
+		mav.getModelMap().put("invoices", invoices);
+		mav.getModelMap().put("title_text", "Cash based invoice");
+		mav.getModelMap().put("total", total);
+		return mav;
+	}
 	
 	
+	
+	@RequestMapping(value = { "/profitandloss.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView profitandloss(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale) throws Exception {
+		logger.info("Starting the save of data.");
+		List<Invoice> invoices = this.invoiceDAO.getList();
+		logger.info("returned with "+invoices.size()+" cash invoices");
+		float totali = 0;
+		for(Invoice i:invoices)
+		{
+			totali=totali+(i.getGrossAmount().floatValue());
+		}
+		
+List <Purrequisition> purreq	=	this.purrequisitionDAO.getListByCondition("t where t.approvalStatus=1");
+		
+
+
+float totalp = 0;
+for(Purrequisition i:purreq)
+{
+	totalp=totalp+(i.getPrice().floatValue());
+}
+		
+		
+		ModelAndView mav = new ModelAndView("profitandloss");
+		mav.getModelMap().put("useFinanceMenus", "true");
+		mav.getModelMap().put("invoices", invoices);
+		mav.getModelMap().put("purrequisitionList", purreq);
+
+		mav.getModelMap().put("title_text", "Cash based invoice");
+		mav.getModelMap().put("totali", totali);
+		mav.getModelMap().put("totalo", totalp);
+
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = { "/debitcredit.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView debitAndCredit(@RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error, Locale locale) throws Exception {
+		logger.info("Starting the save of data.");
+		List<Invoice> invoices = this.invoiceDAO.getList();
+		logger.info("returned with "+invoices.size()+" cash invoices");
+		float totali = 0;
+		for(Invoice i:invoices)
+		{
+			totali=totali+(i.getGrossAmount().floatValue());
+		}
+		
+List <Purrequisition> purreq	=	this.purrequisitionDAO.getListByCondition("t where t.approvalStatus=1");
+		
+
+
+float totalp = 0;
+for(Purrequisition i:purreq)
+{
+	totalp=totalp+(i.getPrice().floatValue());
+}
+		
+		
+		ModelAndView mav = new ModelAndView("debitandcredit");
+		mav.getModelMap().put("useFinanceMenus", "true");
+		mav.getModelMap().put("invoices", invoices);
+		mav.getModelMap().put("purrequisitionList", purreq);
+
+		mav.getModelMap().put("title_text", "Cash based invoice");
+		mav.getModelMap().put("totali", totali);
+		mav.getModelMap().put("totalo", totalp);
+
+		return mav;
+	}
+
 	
 	
 	

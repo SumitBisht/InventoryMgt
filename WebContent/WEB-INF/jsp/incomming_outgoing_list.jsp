@@ -78,8 +78,8 @@
                                             </c:forEach>
                                             <tr>
                                                 
-                                                <td colspan="2">Total</td>
-                                               
+                                                <td colspan="">Total</td>
+                                                <td colspan=""></td>
                                                 <td>
                                                 ${total}
                                                 </td>
