@@ -151,6 +151,25 @@ public class InvoiceController {
 		modelAndView.getModelMap().put("items", itemList);
 		return modelAndView;
 	}
+	/*
+	 * Provides a read-only view for the invoice (to enable its printing)
+	 */
+	@RequestMapping(value = { "/view-invoice.html" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView invoiceDisplay(@RequestParam("id") int id, Locale locale, @RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error) throws Exception {
+		logger.info("Fetching the invoice from the database.");
+		Invoice existingInvoice = this.invoiceDAO.getRecordByPrimaryKey(id);
+		List<Item> itemList = null;
+		try {
+			logger.info("Fetching items for the invoice.");
+			itemList = this.itemDAO.getList();
+		} catch (Exception e) {
+			logger.error("Error in fetching items for the invoice: "+e.getMessage());
+		}
+		ModelAndView modelAndView = new ModelAndView("invoice_details");
+		modelAndView.getModelMap().put("invoice", existingInvoice);
+		modelAndView.getModelMap().put("items", itemList);
+		return modelAndView;
+	}
 	
 	/*
 	 * Updates the invoice data and informs the user of the process
