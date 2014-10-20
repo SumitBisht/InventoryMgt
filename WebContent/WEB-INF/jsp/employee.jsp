@@ -118,6 +118,7 @@
                                                 <td>${departmentmap[employee.employeeDepartmentId]}</td>
                                                 <td>${categorymap[employee.employeeCategoryId]}</td>
                                                 <td>
+                                                    <a href="display_employee.html?id=${employee.id}" class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-view"></span>View</a>
                                                     <a href="edit_employee.html?id=${employee.id}" class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-edit"></span>Edit</a>
                                                     <a href="delete_employee.html?id=${employee.id}" class="btn btn-default btn-sm row-delete" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                                                 </td>

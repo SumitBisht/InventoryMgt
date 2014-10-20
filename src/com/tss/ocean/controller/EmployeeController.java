@@ -738,6 +738,26 @@ if (!result.hasErrors())
 
 
 
+   @RequestMapping(value={"/display_employee.html"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
+   public ModelAndView displayEmployee(@RequestParam("id") int id, Locale locale, @RequestParam(value="success", required=false) String success, @RequestParam(value="error", required=false) String error)
+     throws Exception
+   {
+	   logger.info("Fetching the records of the selected employees");
+	   Employees selected = this.employeesDAO.getRecordByPrimaryKey(id);
+	   logger.info("Received the employee with the provided id : "+selected);
+	   if(selected.getEmployeeDepartmentId()==null || selected.getEmployeeCategoryId()==null){
+		   logger.error("Unable to get the employee department and category details, redisplaying employee list");
+		   return getEmployyes("", "", null);
+	   }
+	   EmployeeDepartment employeeDepartment = this.employeeDepartmentDAO.getRecordByPrimaryKey(selected.getEmployeeDepartmentId());
+	   EmployeeCategory employeeCategory = this.employeeCategoryDAO.getRecordByPrimaryKey(selected.getEmployeeCategoryId());
+	   ModelAndView modelAndView = new ModelAndView("employee_display");
+	   modelAndView.getModelMap().put("emp",selected);
+	   modelAndView.getModelMap().put("department", employeeDepartment.getDepartment());
+	   modelAndView.getModelMap().put("category", employeeCategory.getCategory());
+	   return modelAndView;
+   }
+
 
 
 
